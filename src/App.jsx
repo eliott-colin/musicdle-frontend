@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 const API_BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3001';
 
 const initialFormState = {
-  name: '',
+  username: '',
   email: '',
   password: '',
 };
@@ -15,7 +15,7 @@ export default function App() {
   const [createdUser, setCreatedUser] = useState(null);
 
   const canSubmit = useMemo(
-    () => Boolean(form.name.trim() && form.email.trim() && form.password.trim() && !isSubmitting),
+    () => Boolean(form.username.trim() && form.email.trim() && form.password.trim() && !isSubmitting),
     [form, isSubmitting],
   );
 
@@ -41,7 +41,7 @@ export default function App() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: form.name.trim(),
+          username: form.username.trim(),
           email: form.email.trim(),
           password: form.password,
         }),
@@ -79,10 +79,10 @@ export default function App() {
           <label>
             <span>Nom</span>
             <input
-              name="name"
+              name="username"
               type="text"
               placeholder="John Doe"
-              value={form.name}
+              value={form.username}
               onChange={handleChange}
               required
             />
@@ -127,7 +127,7 @@ export default function App() {
             <pre>{JSON.stringify(createdUser, null, 2)}</pre>
           </div>
         ) : null}
-        
+
       </section>
     </main>
   );
