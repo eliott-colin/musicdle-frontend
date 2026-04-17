@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 
 function ConnexionForm() {
+  const API_BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3001';
   const initialFormState = {
     username: "",
     email: "",

@@ -1,0 +1,28 @@
+.container-game {
+  display: flex;
+}
+
+.icon-container-game {
+  padding: 0.5em;
+  border-radius: 50%;
+  border: 1em solid transparent;
+  /* The first bg is the outside (the border with linear gradient) the second is the inside (the plain bg) */
+  background:
+    linear-gradient(var(--yellowMusicdle), var(--yellowMusicdle)) padding-box,
+    linear-gradient(to right, #49031f, #af074a) border-box;
+}
+
+.icon-game {
+  width: 10em;
+  height: 10em;
+}
+
+.container-name-game {
+  padding: 0.5em;
+  border-radius: 1em 0em;
+  border: 1em solid transparent;
+  background:
+    linear-gradient(var(--burgundyMusicdle), var(--burgundyMusicdle))
+      padding-box,
+    linear-gradient(to right, var(--yellowMusicdle), var(--orangeMusicdle)) border-box;
+}
