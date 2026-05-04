@@ -1,0 +1,112 @@
+.bg-navbar {
+  --navbar-height: 4rem;
+  background-color: #f1bb23;
+  border-bottom: var(--border-musicdle);
+  padding: 0.3em 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--navbar-height);
+  z-index: 300;
+}
+
+.navbar-logo {
+  width: 15%;
+}
+
+/* ------ HAMBURGER ------- */
+#hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#hamburger-menu li {
+  height: 0.2rem;
+  width: 2rem;
+  background-color: #5c4a31;
+  transform-origin: center;
+  line-height: 1;
+  display: block;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+#hamburger-menu li:last-child {
+  margin-bottom: 0;
+}
+
+/* Animate the cross */
+#hamburger-menu[data-action="true"] #cross1 {
+  transform: rotate(-45deg) translate(-0.6rem, 0.2rem);
+}
+
+#hamburger-menu[data-action="true"] li:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-menu[data-action="true"] #cross2 {
+  transform: rotate(45deg) translate(-0.7rem, -0.2rem);
+}
+
+
+/* ----- SIDEBAR ----- */
+#sidebar {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  font-family: "Piepie W01 Regular";
+  background-color: #f1bb23;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(calc(-100% - var(--navbar-height)));
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease, visibility 0s linear 0.4s;
+  z-index: 90;
+  padding-top: 1rem;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#sidebar[data-action="true"] {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu li {
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-menu li:last-child {
+  border-bottom: none;
+}
+
+.sidebar-menu a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: #f1bb23;
+}
