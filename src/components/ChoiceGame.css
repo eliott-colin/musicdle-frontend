@@ -1,0 +1,46 @@
+.container-game {
+  position: relative;
+  cursor: pointer;
+}
+
+/* bg img */
+.button-choice {
+  width: 300px;
+  display: block;
+}
+
+/* overlay in front of the img */
+.overlay-game {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 0 6px;
+  user-select: none;
+}
+
+/* icon */
+/* clamp: https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Values/clamp */
+.icon-game {
+  width: 38px;
+  height: auto;
+}
+
+/* name of the game */
+.name-game {
+  font-family: "Chewy", system-ui;
+  color: white;
+  font-size: 28px;
+  white-space: nowrap;
+}
+
+/* hover */
+.container-game:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+.container-game:active {
+  transform: scale(0.98);
+}

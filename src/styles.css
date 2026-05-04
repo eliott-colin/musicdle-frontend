@@ -1,6 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url(https://db.onlinewebfonts.com/c/f22b66fd8208f04c026f2ddd89468cb5?family=Piepie+W01+Regular); 
+@font-face {
+    font-family: "Piepie W01 Regular";
+    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot");
+    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.svg#Piepie W01 Regular")format("svg");
+}
+
 :root {
   color-scheme: light;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   line-height: 1.5;
   font-weight: 400;
   color: #1f1b17;
@@ -11,6 +23,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --orangeMusicdle: #fe5a1b;
+  --yellowMusicdle: #fddf42;
+  --burgundyMusicdle: #49031F;
+  --blackMusicdle: #202020;
 }
 
 * {
@@ -31,6 +47,20 @@ body {
 button,
 input {
   font: inherit;
+}
+
+/* h1.main-title {
+  font-family: "Chewy", system-ui;
+  color: var(--yellowMusicdle);
+  text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
+  text-align: center;
+}
+*/
+h1.main-title {
+  font-family: "Piepie W01 Regular", system-ui;
+  color: var(--yellowMusicdle);
+  text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
+  text-align: center;
 }
 
 .page-shell {
@@ -92,7 +122,10 @@ h1 {
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.88);
   color: #1f1b17;
-  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
 }
 
 .signup-form input:focus {
@@ -111,7 +144,9 @@ h1 {
   color: #fffaf3;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 140ms ease, opacity 140ms ease;
+  transition:
+    transform 140ms ease,
+    opacity 140ms ease;
 }
 
 .signup-form button:hover:not(:disabled) {
@@ -157,7 +192,7 @@ h1 {
   overflow-x: auto;
   white-space: pre-wrap;
   word-break: break-word;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.88rem;
 }
 
@@ -165,6 +200,13 @@ h1 {
   margin: 18px 0 0;
   color: #6f6258;
   font-size: 0.9rem;
+}
+
+.container-all-games {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 @media (max-width: 480px) {
