@@ -1,28 +1,46 @@
 .container-game {
+  position: relative;
+  width: 85%;
+  cursor: pointer;
+}
+
+/* bg img */
+.button-choice {
+  width: 700px;
+  display: block;
+}
+
+/* overlay in front of the img */
+.overlay-game {
+  position: absolute;
+  inset: 0;
   display: flex;
+  align-items: center;
+  gap: 70px;
+  padding: 0 25px;
 }
 
-.icon-container-game {
-  padding: 0.5em;
-  border-radius: 50%;
-  border: 1em solid transparent;
-  /* The first bg is the outside (the border with linear gradient) the second is the inside (the plain bg) */
-  background:
-    linear-gradient(var(--yellowMusicdle), var(--yellowMusicdle)) padding-box,
-    linear-gradient(to right, #49031f, #af074a) border-box;
-}
-
+/* icon */
+/* clamp: https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Values/clamp */
 .icon-game {
-  width: 10em;
-  height: 10em;
+  width: 65px;
+  height: auto;
 }
 
-.container-name-game {
-  padding: 0.5em;
-  border-radius: 1em 0em;
-  border: 1em solid transparent;
-  background:
-    linear-gradient(var(--burgundyMusicdle), var(--burgundyMusicdle))
-      padding-box,
-    linear-gradient(to right, var(--yellowMusicdle), var(--orangeMusicdle)) border-box;
+/* name of the game */
+.name-game {
+  font-family: "Chewy", system-ui;
+  color: white;
+  font-size: 36px;
+  white-space: nowrap;
+}
+
+/* hover */
+.container-game:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+.container-game:active {
+  transform: scale(0.98);
 }
