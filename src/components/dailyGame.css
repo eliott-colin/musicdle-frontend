@@ -1,0 +1,34 @@
+.bg-daily-game {
+  background-color: #f1bb23;
+  font-family: "classic-comic", sans-serif;
+  border: var(--border-musicdle);
+  border-radius: var(--border-radius-musicdle);
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-container {
+  border: var(--border-musicdle);
+  border-radius: var(--border-radius-musicdle);
+  background-color: #f8f9da;
+  padding: 0.5em;
+}
+.current-date {
+  font-weight: 700;
+}
+
+.challenge-name {
+  text-shadow: #f8f9da 1px 1px 5px;
+}
+
+/* hover */
+.bg-daily-game:hover {
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+
+.container-game:active {
+  transform: scale(0.98);
+}

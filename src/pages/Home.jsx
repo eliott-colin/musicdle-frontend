@@ -1,5 +1,6 @@
 import React from "react";
 import ChoiceGame from "../components/ChoiceGame";
+import DailyGame from "../components/DailyGame";
 
 function Home() {
   return (
@@ -10,13 +11,7 @@ function Home() {
           gameName="Morceau du jour"
           iconGame="/musicdle/images/headphone.png"
         />
-        <div>
-          <ChoiceGame
-            gameName="Jaquette du jour"
-            iconGame="/musicdle/images/music.png"
-          />
-        </div>
-        <div>Jeu 3</div>
+        <div><DailyGame /></div>
       </div>
     </>
   );
