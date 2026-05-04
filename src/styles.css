@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
+@import url(https://db.onlinewebfonts.com/c/f22b66fd8208f04c026f2ddd89468cb5?family=Piepie+W01+Regular); 
+@font-face {
+    font-family: "Piepie W01 Regular";
+    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot");
+    src: url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/f22b66fd8208f04c026f2ddd89468cb5.svg#Piepie W01 Regular")format("svg");
+}
 
 :root {
   color-scheme: light;
@@ -39,8 +49,15 @@ input {
   font: inherit;
 }
 
-h1.main-title {
+/* h1.main-title {
   font-family: "Chewy", system-ui;
+  color: var(--yellowMusicdle);
+  text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
+  text-align: center;
+}
+*/
+h1.main-title {
+  font-family: "Piepie W01 Regular", system-ui;
   color: var(--yellowMusicdle);
   text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
   text-align: center;
