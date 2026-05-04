@@ -43,6 +43,7 @@ h1.main-title {
   font-family: "Chewy", system-ui;
   color: var(--yellowMusicdle);
   text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
+  text-align: center;
 }
 
 .page-shell {
@@ -182,6 +183,13 @@ h1 {
   margin: 18px 0 0;
   color: #6f6258;
   font-size: 0.9rem;
+}
+
+.container-all-games {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 @media (max-width: 480px) {

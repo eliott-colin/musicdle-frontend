@@ -1,12 +1,11 @@
 .container-game {
   position: relative;
-  width: 85%;
   cursor: pointer;
 }
 
 /* bg img */
 .button-choice {
-  width: 700px;
+  width: 300px;
   display: block;
 }
 
@@ -16,14 +15,15 @@
   inset: 0;
   display: flex;
   align-items: center;
-  gap: 70px;
-  padding: 0 25px;
+  gap: 30px;
+  padding: 0 6px;
+  user-select: none;
 }
 
 /* icon */
 /* clamp: https://developer.mozilla.org/fr/docs/Web/CSS/Reference/Values/clamp */
 .icon-game {
-  width: 65px;
+  width: 38px;
   height: auto;
 }
 
@@ -31,7 +31,7 @@
 .name-game {
   font-family: "Chewy", system-ui;
   color: white;
-  font-size: 36px;
+  font-size: 28px;
   white-space: nowrap;
 }
 
