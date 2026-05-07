@@ -5,13 +5,15 @@ import { Link, useLocation } from "react-router-dom";
 function Navbar() {
   // useState start false -> my nav bar is not open
   const [navIsOpen, setNavIsOpen] = useState(false);
-  // useLocation --> on what page i'm currently
   const location = useLocation();
+  const [activePath, setActivePath] = useState(location.pathname);
 
   useEffect(() => {
     setNavIsOpen(false);
+    setActivePath(location.pathname);
   }, [location]);
-  // useEffect to close the sidebar menu when the page is restart
+
+  const getLinkClass = (path) => (activePath === path ? "active-link" : "");
 
   // On click i wanna the burger to change and the side bar to slide
   const handleClick = () => {
@@ -21,10 +23,7 @@ function Navbar() {
   return (
     <>
       <nav className="bg-navbar">
-        <ul
-          id="hamburger-menu"
-          onClick={handleClick}
-          data-action={navIsOpen}>
+        <ul id="hamburger-menu" onClick={handleClick} data-action={navIsOpen}>
           <li id="cross1"></li>
           <li></li>
           <li id="cross2"></li>
@@ -35,14 +34,27 @@ function Navbar() {
           alt="logo"
           className="navbar-logo"
         />
+        <div>
+          <Link to="/register">
+            <img src="/musicdle/public/images/bee.png" alt="Connexion" className="nav-connexion"/>
+          </Link>
+        </div>
       </nav>
 
       <div id="sidebar" data-action={navIsOpen}>
         <ul className="sidebar-menu">
-          <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/register">Jeu du jour</Link></li>
-          <li><Link to="/choice">Mode libre</Link></li>
-          <li><Link to="/profil">Profil</Link></li>
+          <li className={getLinkClass("/")}>
+            <Link to="/">Accueil</Link>
+          </li>
+          <li className={getLinkClass("/register")}>
+            <Link to="/register">Jeu du jour</Link>
+          </li>
+          <li className={getLinkClass("/choice")}>
+            <Link to="/choice">Mode libre</Link>
+          </li>
+          <li className={getLinkClass("/profil")}>
+            <Link to="/profil">Profil</Link>
+          </li>
         </ul>
       </div>
     </>
