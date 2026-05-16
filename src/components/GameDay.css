@@ -102,8 +102,19 @@
   color: #6f6258;
 }
 
+.game-day-track{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.game-day-track-info{
+  display: flex;
+  flex-direction: column;
+}
+
 @media (max-width: 520px) {
   .game-day-row {
     grid-template-columns: 1fr;
   }
 }
+

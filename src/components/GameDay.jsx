@@ -23,66 +23,69 @@ function GameDay({ id = "" }) {
   const handleSpotifyLogin = async () => {
     try {
       await startSpotifyLogin(`${window.location.pathname}${window.location.search}`);
+      setAccessToken(getSpotifyAccessToken());
     } catch (loginError) {
       setError(loginError instanceof Error ? loginError.message : "Impossible d'ouvrir Spotify.");
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  useEffect(() => {
     const query = searchValue.trim();
 
     if (!query) {
       setTracks([]);
-      setError("Ecris un titre ou un artiste.");
+      setError("");
       return;
     }
 
     if (!accessToken) {
       setTracks([]);
-      setError("Connecte-toi à Spotify pour récupérer un token OAuth.");
+      setError("Connecte-toi à Spotify pour lancer la recherche.");
       return;
     }
 
-    try {
-      setLoading(true);
-      setError("");
+    const timeoutId = setTimeout(async () => {
+      try {
+        setLoading(true);
+        setError("");
 
-      const params = new URLSearchParams({
-        q: query,
-        type: "track",
-      });
+        const params = new URLSearchParams({
+          q: query,
+          type: "track",
+        });
 
-      const response = await fetch(`https://api.spotify.com/v1/search?${params.toString()}`, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+        const response = await fetch(`https://api.spotify.com/v1/search?${params.toString()}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
 
-      if (!response.ok) {
-        throw new Error(`Spotify a répondu avec le code ${response.status}.`);
+        if (!response.ok) {
+          throw new Error(`Spotify a répondu avec le code ${response.status}.`);
+        }
+
+        const data = await response.json();
+        setTracks(data?.tracks?.items ?? []);
+      } catch (fetchError) {
+        setTracks([]);
+        setError(fetchError instanceof Error ? fetchError.message : "Erreur lors de la recherche Spotify.");
+      } finally {
+        setLoading(false);
       }
+    }, 350);
 
-      const data = await response.json();
-      setTracks(data?.tracks?.items ?? []);
-    } catch (fetchError) {
-      setTracks([]);
-      setError(fetchError instanceof Error ? fetchError.message : "Erreur lors de la recherche Spotify.");
-    } finally {
-      setLoading(false);
-    }
-  };
+    return () => clearTimeout(timeoutId);
+  }, [searchValue, accessToken]);
 
   return (
     <section className="game-day-card">
-      <form className="game-day-form" onSubmit={handleSubmit}>
-        <label className="game-day-label" htmlFor="game-day-id">
+      <div className="game-day-form">
+        <label className="game-day-label" htmlFor="research">
           Ecris un morceau, un artiste ou un mot-clé.
         </label>
         <div className="game-day-row">
           <input
-            id="game-day-id"
+            id="research"
             className="game-day-input"
             type="text"
             value={searchValue}
@@ -90,11 +93,8 @@ function GameDay({ id = "" }) {
             placeholder="Ex: Que, Daft Punk, Shape of You"
             aria-label="Recherche Spotify"
           />
-          <button className="game-day-button" type="submit" disabled={loading}>
-            {loading ? "Recherche..." : "Chercher"}
-          </button>
         </div>
-      </form>
+      </div>
 
       {!accessToken ? (
         <button className="game-day-button secondary" type="button" onClick={handleSpotifyLogin}>
@@ -102,16 +102,23 @@ function GameDay({ id = "" }) {
         </button>
       ) : null}
 
+      {loading ? <p className="game-day-message">Recherche...</p> : null}
+
       {error ? <p className="game-day-message error">{error}</p> : null}
 
       {tracks.length > 0 ? (
         <ul className="game-day-results">
           {tracks.map((track) => (
             <li key={track.id} className="game-day-result">
-              <strong>{track.name}</strong>
-              <span>
-                {track.artists.map((artist) => artist.name).join(", ")}
-              </span>
+            <div className="game-day-track">
+              <img src={track.album.images[0]?.url} alt={track.name}  width="100" height="100" style={{borderRadius : "14px"}}/>
+              <div className="game-day-track-info">
+                  <strong>{track.name}</strong>
+                  <span>
+                    {track.artists.map((artist) => artist.name).join(", ")}
+                  </span>
+              </div>
+            </div>
             </li>
           ))}
         </ul>
