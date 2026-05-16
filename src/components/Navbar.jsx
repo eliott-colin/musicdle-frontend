@@ -30,13 +30,17 @@ function Navbar() {
         </ul>
 
         <img
-          src="../images/MUSICDLE-logo.png"
+          src={`${import.meta.env.BASE_URL}images/MUSICDLE-logo.png`}
           alt="logo"
           className="navbar-logo"
         />
         <div>
           <Link to="/register">
-            <img src="../images/bee.png" alt="Connexion" className="nav-connexion"/>
+            <img
+              src={`${import.meta.env.BASE_URL}images/bee.png`}
+              alt="Connexion"
+              className="nav-connexion"
+            />
           </Link>
         </div>
       </nav>
