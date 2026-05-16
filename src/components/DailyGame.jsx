@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./dailyGame.css";
 
 function DailyGame() {
@@ -9,6 +10,7 @@ function DailyGame() {
   const currentDay = formattedDate.split(" ")[0];
   const currentMonth = formattedDate.split(" ")[1];
   return (
+    <Link to={`/game/${currentDay}`} style={{ 'textDecoration' : 'none' , color : 'black' }}>
     <div className="bg-daily-game">
       <div className="date-container">
         <span className="current-day">{currentDay} </span>
@@ -17,6 +19,7 @@ function DailyGame() {
       <span className="challenge-name">Challenge du jour</span>
       <span>❯</span>
     </div>
+    </Link>
   );
 }
 
