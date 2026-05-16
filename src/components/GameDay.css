@@ -1,0 +1,120 @@
+.game-day-card {
+  display: grid;
+  gap: 10px;
+  width: min(100%, 420px);
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 249, 240, 0.86);
+  border: 1px solid rgba(57, 45, 34, 0.12);
+  box-shadow: 0 18px 40px rgba(79, 56, 28, 0.12);
+}
+
+.game-day-form {
+  display: grid;
+  gap: 10px;
+}
+
+.game-day-label {
+  font-weight: 700;
+  color: #392d22;
+}
+
+.game-day-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.game-day-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(57, 45, 34, 0.18);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1f1b17;
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.game-day-button {
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #2f241c, #8d5d2f);
+  color: #fffaf3;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    opacity 140ms ease;
+}
+
+.game-day-button.secondary {
+  width: fit-content;
+  background: linear-gradient(135deg, #4b3b2e, #b06a2c);
+}
+
+.game-day-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.game-day-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.game-day-input:focus {
+  outline: none;
+  border-color: #b06a2c;
+  box-shadow: 0 0 0 4px rgba(176, 106, 44, 0.15);
+  transform: translateY(-1px);
+}
+
+.game-day-message {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.game-day-message.error {
+  color: #8b2f1e;
+}
+
+.game-day-results {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.game-day-result {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(57, 45, 34, 0.12);
+}
+
+.game-day-result span {
+  color: #6f6258;
+}
+
+.game-day-track{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.game-day-track-info{
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 520px) {
+  .game-day-row {
+    grid-template-columns: 1fr;
+  }
+}
+
