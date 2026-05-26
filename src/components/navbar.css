@@ -65,7 +65,8 @@
   top: var(--navbar-height);
   left: 0;
   right: 0;
-  font-family: "Piepie W01 Regular";
+  font-family: catalpa, sans-serif; 
+  font-weight: 700;
   background-color: #f1bb23;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(calc(-100% - var(--navbar-height)));

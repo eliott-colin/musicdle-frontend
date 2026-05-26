@@ -2,6 +2,8 @@
   border: 3px solid var(--whiteMusicdle);
   background-color: var(--greenMusicdle);
   color: var(--whiteMusicdle);
+  font-family: catalpa, sans-serif; 
+  font-weight: 700;
 
   border-radius: var(--border-radius-musicdle);
   padding: 0.5em 1em;
