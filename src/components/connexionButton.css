@@ -1,0 +1,16 @@
+.connexion-button {
+  border: 3px solid var(--whiteMusicdle);
+  background-color: var(--greenMusicdle);
+  color: var(--whiteMusicdle);
+
+  border-radius: var(--border-radius-musicdle);
+  padding: 0.5em 1em;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+
+  width: fit-content;
+  margin: auto;
+}

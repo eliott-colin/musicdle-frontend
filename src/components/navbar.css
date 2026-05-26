@@ -108,7 +108,7 @@
 
 .sidebar-menu li.active-link a {
   color: #F8F9DA;
-  background-color: #809311;
+  background-color: var(--greenMusicdle);
   font-weight: 700;
 }
 
