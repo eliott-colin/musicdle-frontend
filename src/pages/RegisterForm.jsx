@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import SubmitButton from "../components/SubmitButton";
 
-function ConnexionForm() {
+function RegisterForm() {
   const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
   const initialFormState = {
     username: "",
@@ -144,4 +144,4 @@ function ConnexionForm() {
   );
 }
 
-export default ConnexionForm;
+export default RegisterForm;

@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App.jsx";
 import Home from "../pages/Home.jsx";
 import Game from "../pages/Game.jsx";
-import ConnexionForm from "../pages/RegisterForm.jsx";
+import RegisterForm from "../pages/RegisterForm.jsx";
 import Error from "../pages/Error.jsx";
 
 const router = createBrowserRouter([
