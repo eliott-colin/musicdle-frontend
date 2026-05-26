@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import SubmitButton from "../components/SubmitButton";
+import { useLocation } from "react-router-dom";
 
 function RegisterForm() {
   const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
@@ -75,14 +76,27 @@ function RegisterForm() {
     }
   };
 
+  const location = useLocation();
+  const mode = location.pathname === "/login" ? "login" : "register";
+
   return (
     <>
       <div className="login-page">
         <div className="login-card">
+          <div className={`toggle-switch ${mode}`}>
+            <div className="toggle-slider"></div>
+
+            <Link to="/login" className={`toggle-option ${mode === "login" ? "active" : ""}`}>
+              Connexion
+            </Link>
+
+            <Link to="/register" className={`toggle-option ${mode === "register" ? "active" : ""}`}>
+              Inscription
+            </Link>
+          </div>
           <h2 className="login-title">Connexion</h2>
 
           <form className="login-form" onSubmit={handleSubmit}>
-
             <div className="input-group">
               <label className="label-form">Email</label>
               <input

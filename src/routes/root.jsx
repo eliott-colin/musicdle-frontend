@@ -15,7 +15,8 @@ const router = createBrowserRouter([
       { path: "/", element: < Home /> },
       { path: "/game/:id", element: <Game /> },
       { path: "/register", element: <RegisterForm /> },
-      { path: "/login", element: <ConnexionForm />}
+      { path: "/login", element: <ConnexionForm />},
+      { path: "/game", element: <Game />}
     ]
   }
 ],
