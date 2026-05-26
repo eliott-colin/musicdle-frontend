@@ -79,9 +79,20 @@ function RegisterForm() {
     <>
       <div className="login-page">
         <div className="login-card">
-          <h2 className="login-title">Connexion</h2>
+          <h2 className="login-title">Inscription</h2>
 
           <form className="login-form" onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label className="label-form">Nom</label>
+              <input
+                type="username"
+                name="username"
+                placeholder="Jane Doe"
+                value={form.username}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
             <div className="input-group">
               <label className="label-form">Email</label>
@@ -107,7 +118,7 @@ function RegisterForm() {
               />
             </div>
             <SubmitButton
-              text={isSubmitting ? "Envoi..." : "Connexion"}
+              text={isSubmitting ? "Envoi..." : "Inscription"}
               disabled={!canSubmit}
             />
           </form>
@@ -125,7 +136,7 @@ function RegisterForm() {
           </div>
           <div className="auth-links">
             <Link to="/forgotPass">Mot de passe oublié ?</Link>
-            <Link to="/register">Inscription</Link>
+            <Link to="/login">Connexion</Link>
           </div>
         </div>
       </div>

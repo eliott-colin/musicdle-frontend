@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
+import ConnexionButton from "./ConnexionButton";
 
 function Navbar() {
   // useState start false -> my nav bar is not open
@@ -46,20 +47,28 @@ function Navbar() {
       </nav>
 
       <div id="sidebar" data-action={navIsOpen}>
-        <ul className="sidebar-menu">
-          <li className={getLinkClass("/")}>
-            <Link to="/">Accueil</Link>
-          </li>
-          <li className={getLinkClass("/register")}>
-            <Link to="/register">Jeu du jour</Link>
-          </li>
-          <li className={getLinkClass("/choice")}>
-            <Link to="/choice">Mode libre</Link>
-          </li>
-          <li className={getLinkClass("/profil")}>
-            <Link to="/profil">Profil</Link>
-          </li>
-        </ul>
+        <div className="sidebar-content">
+          <ul className="sidebar-menu">
+            <li className={getLinkClass("/")}>
+              <Link to="/">Accueil</Link>
+            </li>
+            <li className={getLinkClass("/daily-game")}>
+              <Link to="/register">Jeu du jour</Link>
+            </li>
+            <li className={getLinkClass("/choice")}>
+              <Link to="/choice">Mode libre</Link>
+            </li>
+            <li className={getLinkClass("/profil")}>
+              <Link to="/profil">Profil</Link>
+            </li>
+          </ul>
+        </div>
+
+        <div className="sidebar-footer">
+          <Link to="/register">
+            <ConnexionButton text="Connexion ou inscription" />
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 .bg-navbar {
-  --navbar-height: 4rem;
+  --navbar-height: 6rem;
   background-color: #f1bb23;
   border-bottom: var(--border-musicdle);
   padding: 0.3em 0.5em;
@@ -59,23 +59,30 @@
   transform: rotate(45deg) translate(-0.7rem, -0.2rem);
 }
 
-
 /* ----- SIDEBAR ----- */
 #sidebar {
   position: fixed;
   top: var(--navbar-height);
   left: 0;
   right: 0;
-  font-family: "Piepie W01 Regular";
+  font-family: catalpa, sans-serif; 
+  font-weight: 700;
   background-color: #f1bb23;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(calc(-100% - var(--navbar-height)));
   opacity: 0;
-  transition: transform 0.4s ease, opacity 0.4s ease, visibility 0s linear 0.4s;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease,
+    visibility 0s linear 0.4s;
   z-index: 90;
   padding-top: 1rem;
   visibility: hidden;
   pointer-events: none;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: calc(100vh - var(--navbar-height));
 }
 
 #sidebar[data-action="true"] {
@@ -83,7 +90,9 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
 }
 
 .sidebar-menu {
@@ -95,7 +104,7 @@
 }
 
 .sidebar-menu li {
-  border-bottom: 1px solid #310A1F;
+  border-bottom: 1px solid #310a1f;
 }
 
 .sidebar-menu li:last-child {
@@ -107,8 +116,8 @@
 }
 
 .sidebar-menu li.active-link a {
-  color: #F8F9DA;
-  background-color: #809311;
+  color: #f8f9da;
+  background-color: var(--greenMusicdle);
   font-weight: 700;
 }
 
@@ -119,4 +128,10 @@
   text-decoration: none;
   font-size: 1rem;
   transition: background-color 0.2s ease;
+}
+
+.sidebar-footer {
+  padding: 1rem;
+  background-color: #e2b63b;
+  border-top: 2px solid #310a1f;
 }
