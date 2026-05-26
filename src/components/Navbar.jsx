@@ -52,7 +52,7 @@ function Navbar() {
             <li className={getLinkClass("/")}>
               <Link to="/">Accueil</Link>
             </li>
-            <li className={getLinkClass("/register")}>
+            <li className={getLinkClass("/daily-game")}>
               <Link to="/register">Jeu du jour</Link>
             </li>
             <li className={getLinkClass("/choice")}>
@@ -65,7 +65,9 @@ function Navbar() {
         </div>
 
         <div className="sidebar-footer">
-          <ConnexionButton text="Connexion ou inscription" />
+          <Link to="/register">
+            <ConnexionButton text="Connexion ou inscription" />
+          </Link>
         </div>
       </div>
     </>
