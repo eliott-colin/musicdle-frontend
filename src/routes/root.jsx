@@ -19,6 +19,6 @@ const router = createBrowserRouter([
     ]
   }
 ],
-{ basename: "/musicdle" },);
+{ basename: "/musicdle/" },);
 
 export default router;
