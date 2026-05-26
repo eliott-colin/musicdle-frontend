@@ -47,24 +47,26 @@ function Navbar() {
       </nav>
 
       <div id="sidebar" data-action={navIsOpen}>
-        <ul className="sidebar-menu">
-          <li className={getLinkClass("/")}>
-            <Link to="/">Accueil</Link>
-          </li>
-          <li className={getLinkClass("/register")}>
-            <Link to="/register">Jeu du jour</Link>
-          </li>
-          <li className={getLinkClass("/choice")}>
-            <Link to="/choice">Mode libre</Link>
-          </li>
-          <li className={getLinkClass("/profil")}>
-            <Link to="/profil">Profil</Link>
-          </li>
+        <div className="sidebar-content">
+          <ul className="sidebar-menu">
+            <li className={getLinkClass("/")}>
+              <Link to="/">Accueil</Link>
+            </li>
+            <li className={getLinkClass("/register")}>
+              <Link to="/register">Jeu du jour</Link>
+            </li>
+            <li className={getLinkClass("/choice")}>
+              <Link to="/choice">Mode libre</Link>
+            </li>
+            <li className={getLinkClass("/profil")}>
+              <Link to="/profil">Profil</Link>
+            </li>
+          </ul>
+        </div>
 
-          <li>
-            <ConnexionButton text="Connexion ou inscription" />
-          </li>
-        </ul>
+        <div className="sidebar-footer">
+          <ConnexionButton text="Connexion ou inscription" />
+        </div>
       </div>
     </>
   );
