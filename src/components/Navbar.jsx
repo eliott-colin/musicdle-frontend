@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
+import ConnexionButton from "./ConnexionButton";
 
 function Navbar() {
   // useState start false -> my nav bar is not open
@@ -58,6 +59,10 @@ function Navbar() {
           </li>
           <li className={getLinkClass("/profil")}>
             <Link to="/profil">Profil</Link>
+          </li>
+
+          <li>
+            <ConnexionButton text="Connexion ou inscription" />
           </li>
         </ul>
       </div>
