@@ -276,3 +276,13 @@ h1 {
 .toggle-switch.register .toggle-slider {
   transform: translateX(100%);
 }
+
+/*
+========= HOME PAGE =========
+*/
+.container-all-games {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
