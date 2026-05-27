@@ -33,6 +33,7 @@ body,
 #root {
   min-height: 100%;
   margin: 0;
+  background-color: var(--whiteMusicdle);
 }
 
 body {
@@ -44,13 +45,6 @@ input {
   font: inherit;
 }
 
-/* h1.main-title {
-  font-family: "Chewy", system-ui;
-  color: var(--yellowMusicdle);
-  text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
-  text-align: center;
-}
-*/
 h1.main-title {
   font-family: catalpa, sans-serif;
   font-weight: 700;
@@ -283,6 +277,7 @@ h1 {
 .container-all-games {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  margin: auto;
   gap: 20px;
 }

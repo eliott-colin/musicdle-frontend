@@ -1,31 +1,80 @@
-.bg-daily-game {
-  background-color: #f1bb23;
-  font-family: "classic-comic", sans-serif;
+/* global wrapper */
+.daily-card {
   border: var(--border-musicdle);
   border-radius: var(--border-radius-musicdle);
+  width: min(100%, 80%);
+  max-width: 30rem;
+  margin: 0 auto;
+  transition: 0.3s ease-in-out;
+}
+
+/* image */
+.illustration {
+  background: #4d8ec7;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-bottom: var(--border-musicdle);
+}
+
+.bg-daily-game {
+  background-color: var(--whiteMusicdle);
+  font-family: catalpa, sans-serif;
+  font-weight: 700;
+  border: none;
   padding: 1em;
   display: flex;
   align-items: center;
-  gap: 10px;  
-  transition: 0.3s ease-in-out;
+  gap: 10px;
+  justify-content: space-between;
+  
 }
 
 .date-container {
   border: var(--border-musicdle);
+  border-bottom: 5px solid #310a1f;
   border-radius: var(--border-radius-musicdle);
-  background-color: #f8f9da;
-  padding: 0.5em;
+  background-color: #F1BB23;
+  padding: 0.4em;
+  height: 5em;
+  width: 5em;
 }
+
 .current-date {
   font-weight: 700;
 }
 
+.right-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+  min-width: 10em;
+}
+
 .challenge-name {
   text-shadow: #f8f9da 1px 1px 5px;
+  flex: 1;
+  text-align: center;
+}
+
+.play-btn {
+  background: #F1BB23;
+  border: var(--border-musicdle);
+  border-radius: var(--border-radius-musicdle);
+  padding: 0.75em;
+  min-width: 40%;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* hover */
-.bg-daily-game:hover {
+.daily-card:hover {
   transform: scale(1.05);
   transition: 0.3s ease-in-out;
 }
