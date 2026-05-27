@@ -12,10 +12,10 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: < Home /> },
-      { path: "/game/:id", element: <Game /> },
-      { path: "/register", element: <RegisterForm /> },
-      { path: "/login", element: <ConnexionForm />},
+      { index: true, element: <Home /> },
+      { path: "game/:id", element: <Game /> },
+      { path: "register", element: <RegisterForm /> },
+      { path: "login", element: <ConnexionForm />},
     ]
   }
 ],
