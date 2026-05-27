@@ -42,7 +42,7 @@ function RegisterForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/users/register`, {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function RegisterForm() {
       }
 
       setCreatedUser(payload);
-      setStatus({ type: "success", message: "Utilisateur créé avec succès." });
+      setStatus({ type: "success", message: "Utilisateur connecté avec succès." });
       setForm(initialFormState);
     } catch (error) {
       setStatus({
