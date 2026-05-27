@@ -43,6 +43,19 @@
   width: 5em;
 }
 
+.mode-container {
+  border: var(--border-musicdle);
+  border-bottom: 4px solid #310a1f;
+  border-radius: var(--border-radius-musicdle);
+  padding: 0.4em;
+  height: 5em;
+  width: 5em;
+}
+
+.mode-container img{
+  width: 100%;
+}
+
 .current-date {
   font-weight: 700;
 }
@@ -59,8 +72,17 @@
 
 .challenge-name {
   text-shadow: #f8f9da 1px 1px 5px;
+  font-weight: 850;
+  font-size: 20px;
+  text-transform: uppercase;
   flex: 1;
   text-align: center;
+}
+
+.game-description {
+  font-family: "soleil", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .play-btn {
