@@ -10,6 +10,7 @@ function RegisterForm() {
     username: "",
     email: "",
     password: "",
+    passwordVerify: "",
   };
   const [form, setForm] = useState(initialFormState);
   const [status, setStatus] = useState({ type: "idle", message: "" });
@@ -108,7 +109,7 @@ function RegisterForm() {
             <div className="input-group">
               <label className="label-form">Nom</label>
               <input
-                type="username"
+                type="text"
                 name="username"
                 placeholder="Jane Doe"
                 value={form.username}
@@ -145,7 +146,7 @@ function RegisterForm() {
               <label className="label-form">Vérifier votre mot de passe</label>
               <input
                 type="password"
-                name="password-verify"
+                name="passwordVerify"
                 placeholder="••••••••"
                 value={form.passwordVerify}
                 onChange={handleChange}
