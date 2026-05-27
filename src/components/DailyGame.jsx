@@ -14,11 +14,10 @@ function DailyGame() {
     <>
       <Link
         to={`/game/${currentDay}`}
-        style={{ textDecoration: "none", color: "black" }}
-      >
+        style={{ textDecoration: "none", color: "black" }}>
         <div className="daily-card">
           {/* illustration */}
-          <div className="illustration">ILLUSTRATION</div>
+          <div className="illustration"><img src="/musicdle/images/illu.jpg" alt="illu" /></div>
 
           <div className="bg-daily-game">
             <div className="date-container">
