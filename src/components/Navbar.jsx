@@ -31,25 +31,17 @@ function Navbar() {
         </ul>
 
         <img
-<<<<<<< Updated upstream
           src={`${import.meta.env.BASE_URL}images/MUSICDLE-logo.png`}
-=======
-          src="../images/MUSICDLE-logo.png"
->>>>>>> Stashed changes
           alt="logo"
           className="navbar-logo"
         />
         <div>
           <Link to="/register">
-<<<<<<< Updated upstream
             <img
               src={`${import.meta.env.BASE_URL}images/bee.png`}
               alt="Connexion"
               className="nav-connexion"
             />
-=======
-            <img src="../images/bee.png" alt="Connexion" className="nav-connexion"/>
->>>>>>> Stashed changes
           </Link>
         </div>
       </nav>
