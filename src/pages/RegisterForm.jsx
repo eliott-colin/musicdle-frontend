@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import SubmitButton from "../components/SubmitButton";
 import { useLocation } from "react-router-dom";
 
+// RELIER AU BACK QUAND CE SERA OK
 function RegisterForm() {
   const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
   const initialFormState = {
@@ -21,6 +22,7 @@ function RegisterForm() {
         form.username.trim() &&
         form.email.trim() &&
         form.password.trim() &&
+        form.passwordVerify.trim() &&
         !isSubmitting,
       ),
     [form, isSubmitting],
@@ -77,7 +79,7 @@ function RegisterForm() {
   };
 
   const location = useLocation();
-  const mode = location.pathname === "/login" ? "login" : "register";
+  const mode = location.pathname === "/register" ? "register" : "login";
 
   return (
     <>
@@ -88,13 +90,15 @@ function RegisterForm() {
 
             <Link
               to="/login"
-              className={`toggle-option ${mode === "login" ? "active" : ""}`}>
+              className={`toggle-option ${mode === "login" ? "active" : ""}`}
+            >
               Connexion
             </Link>
 
             <Link
               to="/register"
-              className={`toggle-option ${mode === "register" ? "active" : ""}`}>
+              className={`toggle-option ${mode === "register" ? "active" : ""}`}
+            >
               Inscription
             </Link>
           </div>
@@ -136,6 +140,19 @@ function RegisterForm() {
                 required
               />
             </div>
+
+            <div className="input-group">
+              <label className="label-form">Vérifier votre mot de passe</label>
+              <input
+                type="password"
+                name="password-verify"
+                placeholder="••••••••"
+                value={form.passwordVerify}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
             <SubmitButton
               text={isSubmitting ? "Envoi..." : "Inscription"}
               disabled={!canSubmit}

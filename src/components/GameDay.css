@@ -1,12 +1,22 @@
+.header-game {
+  width: 20em;
+  margin: auto;
+}
+
+.header-game img {
+  width: 100%;
+}
+
 .game-day-card {
   display: grid;
   gap: 10px;
   width: min(100%, 420px);
   padding: 20px;
   border-radius: 20px;
-  background: rgba(255, 249, 240, 0.86);
-  border: 1px solid rgba(57, 45, 34, 0.12);
+  background-color: var(--whiteMusicdle);
+  border-bottom: var(--border-musicdle);
   box-shadow: 0 18px 40px rgba(79, 56, 28, 0.12);
+  margin: auto;
 }
 
 .game-day-form {
@@ -36,33 +46,6 @@
     border-color 140ms ease,
     box-shadow 140ms ease,
     transform 140ms ease;
-}
-
-.game-day-button {
-  padding: 14px 18px;
-  border: 0;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #2f241c, #8d5d2f);
-  color: #fffaf3;
-  font-weight: 700;
-  cursor: pointer;
-  transition:
-    transform 140ms ease,
-    opacity 140ms ease;
-}
-
-.game-day-button.secondary {
-  width: fit-content;
-  background: linear-gradient(135deg, #4b3b2e, #b06a2c);
-}
-
-.game-day-button:hover:not(:disabled) {
-  transform: translateY(-1px);
-}
-
-.game-day-button:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
 }
 
 .game-day-input:focus {
@@ -118,3 +101,23 @@
   }
 }
 
+/* Result card in Game component */
+.result-card {
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--whiteMusicdle);
+}
+
+.result-card h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.result-card pre {
+  margin: 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: "Courier New", monospace;
+  font-size: 0.88rem;
+}

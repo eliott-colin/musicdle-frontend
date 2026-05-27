@@ -33,6 +33,7 @@ body,
 #root {
   min-height: 100%;
   margin: 0;
+  background-color: var(--whiteMusicdle);
 }
 
 body {
@@ -44,13 +45,6 @@ input {
   font: inherit;
 }
 
-/* h1.main-title {
-  font-family: "Chewy", system-ui;
-  color: var(--yellowMusicdle);
-  text-shadow: var(--orangeMusicdle) 0.08em 0.05em;
-  text-align: center;
-}
-*/
 h1.main-title {
   font-family: catalpa, sans-serif;
   font-weight: 700;
@@ -84,28 +78,6 @@ h1 {
 .feedback.error {
   background: rgba(180, 66, 42, 0.12);
   color: #8b2f1e;
-}
-
-.result-card {
-  margin-top: 18px;
-  padding: 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.68);
-  border: 1px solid rgba(57, 45, 34, 0.12);
-}
-
-.result-card h2 {
-  margin: 0 0 10px;
-  font-size: 1rem;
-}
-
-.result-card pre {
-  margin: 0;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
-  font-family: "Courier New", monospace;
-  font-size: 0.88rem;
 }
 
 /* ========== FORMULAIRE DE CONNEXION / INSCRIPTION ============= */
@@ -213,6 +185,7 @@ h1 {
   text-decoration: underline;
   color: var(--greenMusicdle);
 }
+
 /* swich button to register/login */
 .toggle-switch {
   position: relative;
@@ -229,14 +202,14 @@ h1 {
   margin-left: auto;
   margin-bottom: 1rem;
 
-  padding: 3px; /* espace intérieur propre */
+  padding: 3px;
 }
 
 /* sliding part */
 .toggle-slider {
   position: absolute;
 
-  width: calc(50% - 6px); /* ✅ prend exactement la moitié - padding */
+  width: calc(50% - 6px);
   height: calc(100% - 6px);
 
   top: 3px;
@@ -268,11 +241,22 @@ h1 {
   color: var(--whiteMusicdle);
 }
 
-
 .toggle-switch.login .toggle-slider {
   transform: translateX(0%);
 }
 
 .toggle-switch.register .toggle-slider {
-  transform: translateX(100%s);
+  transform: translateX(100%);
+}
+
+/*
+========= HOME PAGE =========
+*/
+.container-all-games {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: auto;
+  gap: 20px;
+  padding: 1em 0;
 }

@@ -1,13 +1,22 @@
 import { useEffect, useState } from "react";
-import "./GameDay.css";
+import SubmitButton from "./SubmitButton";
 
-function GameDay({ id = "" }) {
+function GameInput({ id = "" }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [tracks, setTracks] = useState([]);
+  const [searchValue, setSearchValue] = useState(id);
+
+  // get the searching value in the input
+  useEffect(() => {
+    setSearchValue(id);
+  }, [id]);
  
   return (
     <section className="game-day-card">
       <div className="game-day-form">
         <label className="game-day-label" htmlFor="research">
-          Ecris un morceau, un artiste ou un mot-cle.
+          Ecris le nom d'un artiste
         </label>
         <div className="game-day-row">
           <input
@@ -16,7 +25,7 @@ function GameDay({ id = "" }) {
             type="text"
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
-            placeholder="Ex: Que, Daft Punk, Shape of You"
+            placeholder="Ex: Daft Punk"
             aria-label="Recherche Spotify"
           />
         </div>
@@ -46,8 +55,9 @@ function GameDay({ id = "" }) {
           ))}
         </ul>
       ) : null}
+      <SubmitButton text="Soumettre ma réponse" disabled={false}/>
     </section>
   );
 }
 
-export default GameDay;
+export default GameInput;

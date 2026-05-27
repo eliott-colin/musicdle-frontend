@@ -1,17 +1,16 @@
 import React from "react";
 import ChoiceGame from "../components/ChoiceGame";
 import DailyGame from "../components/DailyGame";
+import GameMode from "../components/GameMode"
 
 function Home() {
   return (
     <>
-      <h1 className="main-title">Musicdle</h1>
       <div className="container-all-games">
-        <ChoiceGame
-          gameName="Morceau du jour"
-          iconGame="/musicdle/images/headphone.png"
-        />
         <div><DailyGame /></div>
+        <div><GameMode mode="Mode Solo" description="Lance une partie en solo" /></div>
+        <div><GameMode mode="Mode battle" description="Lance une partie en ligne ou en local" /></div>
+        <div><GameMode mode="Mode quizz" description="Teste tes connaissances" /></div>
       </div>
     </>
   );
