@@ -280,4 +280,5 @@ h1 {
   align-items: stretch;
   margin: auto;
   gap: 20px;
+  padding: 1em 0;
 }

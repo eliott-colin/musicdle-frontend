@@ -39,8 +39,9 @@
   border-radius: var(--border-radius-musicdle);
   background-color: #F1BB23;
   padding: 0.4em;
-  height: 5em;
-  width: 5em;
+  height: 4.5em;
+  width: 4.5em;
+  text-align: center;
 }
 
 .mode-container {
@@ -48,8 +49,8 @@
   border-bottom: 4px solid #310a1f;
   border-radius: var(--border-radius-musicdle);
   padding: 0.4em;
-  height: 5em;
-  width: 5em;
+  height: 4.5em;
+  width: 4.5em;
 }
 
 .mode-container img{
