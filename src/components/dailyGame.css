@@ -6,6 +6,7 @@
   max-width: 30rem;
   margin: 0 auto;
   transition: 0.3s ease-in-out;
+  overflow: clip;
 }
 
 /* image */
