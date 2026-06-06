@@ -34,6 +34,8 @@ function GameDay({ id = "" }) {
     setSecret({
       track: "die by the blade",
       artist: "Beast in Black",
+      album: "From Hell with Love",
+      year: 2019,
     });
   }, []);
 
@@ -53,7 +55,6 @@ function GameDay({ id = "" }) {
         setError("");
 
         const response = await fetch(buildApiUrl("/api/search", { q: query }));
-        console.log(response)
 
         if (!response.ok) {
           throw new Error(`Serveur ${response.status}`);
@@ -81,23 +82,37 @@ function GameDay({ id = "" }) {
 
     const result = {
       ...track,
+
       titleState:
         track.track.toLowerCase() === secret.track.toLowerCase()
           ? "correct"
           : "wrong",
+
       artistState:
         track.artist.toLowerCase() === secret.artist.toLowerCase()
           ? "correct"
           : "wrong",
+
+      albumState:
+        track.album.toLowerCase() === secret.album.toLowerCase()
+          ? "correct"
+          : "wrong",
+
+      yearState:
+        track.year === secret.year
+          ? "correct"
+          : track.year > secret.year
+            ? "close" // TO DO add arrow up or down ==> to early
+            : "close", // TO DO add arrow up or down ==> to ancient
     };
 
-    // History of try
     setHistory((prev) => [result, ...prev]);
 
-    // Hints
     const newHints = [];
     if (result.artistState === "correct") newHints.push("Bon artiste !");
+    if (result.yearState === "close") newHints.push("Année proche !");
     if (result.titleState === "correct") newHints.push("GG → trouvé !");
+
     setHints(newHints);
   };
 
@@ -114,7 +129,6 @@ function GameDay({ id = "" }) {
 
   return (
     <section className="game-day-card">
-
       <div className="game-header">
         <p className="generation">Daily Game</p>
         <h2>Devine le morceau d’aujourd’hui</h2>
@@ -161,6 +175,8 @@ function GameDay({ id = "" }) {
         <div className="guess-header">
           <div>Titre</div>
           <div>Artiste</div>
+          <div>Album</div>
+          <div>Année</div>
         </div>
       )}
 
@@ -170,8 +186,17 @@ function GameDay({ id = "" }) {
             <div className={`cell ${getColor(item.titleState)}`}>
               {item.track}
             </div>
+
             <div className={`cell ${getColor(item.artistState)}`}>
               {item.artist}
+            </div>
+
+            <div className={`cell ${getColor(item.albumState)}`}>
+              <span>{item.album}</span>
+            </div>
+
+            <div className={`cell ${getColor(item.yearState)}`}>
+              {item.year}
             </div>
           </div>
         ))}
