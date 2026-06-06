@@ -10,7 +10,7 @@
 .game-day-card {
   display: grid;
   gap: 10px;
-  width: min(100%, 420px);
+  width: min(100%, 600px);
   padding: 20px;
   border-radius: 20px;
   background-color: var(--whiteMusicdle);
@@ -85,12 +85,12 @@
   color: #6f6258;
 }
 
-.game-day-track{
+.game-day-track {
   display: flex;
   gap: 10px;
   align-items: center;
 }
-.game-day-track-info{
+.game-day-track-info {
   display: flex;
   flex-direction: column;
 }
@@ -120,4 +120,106 @@
   word-break: break-word;
   font-family: "Courier New", monospace;
   font-size: 0.88rem;
+}
+
+.history {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.guess-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 1fr));
+  gap: 14px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1; /* squares */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 10px;
+  border-radius: 18px;
+  border: 5px solid black;
+  font-weight: bold;
+  font-size: 0.9rem;
+
+  line-height: 1.2;
+  word-break: break-word;
+  background: #eee;
+
+  transition: transform 0.2s;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+}
+
+/* Couleurs */
+.bg-green {
+  background: #6ee7b7;
+}
+
+.bg-yellow {
+  background: #facc15;
+}
+
+.bg-red {
+  background: #f87171;
+}
+
+/* Clickable */
+.clickable {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.clickable:hover {
+  transform: scale(1.02);
+}
+
+.hints {
+  margin-top: 20px;
+  border: 4px solid black;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.game-header {
+  text-align: center;
+  padding: 10px;
+  border: 4px solid black;
+  border-radius: 16px;
+  background: #3a506b;
+  color: white;
+}
+
+.game-header h2 {
+  margin: 5px 0;
+}
+
+.generation {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.guess-header {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(80px, 1fr));
+  gap: 14px;
+  margin: 20px 0 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+
+@media (max-width: 520px) {
+  .guess-row,
+  .guess-header {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
