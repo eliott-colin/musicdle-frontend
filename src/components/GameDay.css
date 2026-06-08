@@ -14,7 +14,7 @@
   padding: 20px;
   border-radius: 20px;
   background-color: var(--whiteMusicdle);
-  border-bottom: var(--border-musicdle);
+  border: var(--border-musicdle);
   box-shadow: 0 18px 40px rgba(79, 56, 28, 0.12);
   margin: auto;
 }

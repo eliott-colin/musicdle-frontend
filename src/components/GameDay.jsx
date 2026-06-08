@@ -32,10 +32,10 @@ function GameDay({ id = "" }) {
   // FAKE SECRET (API spotify of the day)
   useEffect(() => {
     setSecret({
-      track: "die by the blade",
-      artist: "Beast in Black",
-      album: "From Hell with Love",
-      year: 2019,
+      track: "Couleur menthe à l'eau",
+      artist: "Eddy Mitchell",
+      album: "Happy Birthday",
+      year: 1980,
     });
   }, []);
 
