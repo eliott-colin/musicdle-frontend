@@ -5,7 +5,7 @@ function Hints({ hints }) {
       {hints.length === 0 ? (
         <p>Aucun indice pour le moment</p>
       ) : (
-        hints.map((h, i) => <p key={i}>{h}</p>)
+        hints.map((hint, index) => <p key={index}>{hint}</p>)
       )}
     </div>
   );

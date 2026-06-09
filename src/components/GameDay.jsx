@@ -77,30 +77,55 @@ function GameDay({ id = "" }) {
 
   const compare = (track) => {
     if (!secret) return;
+    // get the year of the secret one and to the search one
+    const trackYear = Number(track.year);
+    const secretYear = Number(secret.year);
+
+    let yearState = "wrong";
+    let yearHint = null;
+
+    const diff = Math.abs(trackYear - secretYear);
+
+    if (trackYear === secretYear) {
+      yearState = "correct";
+    } else if (diff <= 5) {
+      yearState = "close"; // close if around 5 years
+      yearHint = trackYear < secretYear ? "up" : "down";
+    } else {
+      yearState = "wrong"; // more than 5 years difference ==> red
+      yearHint = trackYear < secretYear ? "up" : "down";
+    }
 
     const result = {
       ...track,
+
       titleState:
         track.track.toLowerCase() === secret.track.toLowerCase()
           ? "correct"
           : "wrong",
+
       artistState:
         track.artist.toLowerCase() === secret.artist.toLowerCase()
           ? "correct"
           : "wrong",
+
       albumState:
         track.album.toLowerCase() === secret.album.toLowerCase()
           ? "correct"
           : "wrong",
-      yearState: track.year == secret.year ? "correct" : "close",
+
+      yearState,
+      yearHint,
     };
 
     setHistory((prev) => [result, ...prev]);
 
     const newHints = [];
     if (result.artistState === "correct") newHints.push("Bon artiste !");
-    if (result.yearState === "close") newHints.push("Année proche !");
-    if (result.titleState === "correct") newHints.push("GG → trouvé !");
+    if (result.yearState === "close") newHints.push("Très proche !");
+    if (result.yearState === "wrong")
+      newHints.push("Plus de 5 ans de différence");
+    if (result.titleState === "correct") newHints.push("GG trouvé !");
 
     setHints(newHints);
   };
