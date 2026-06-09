@@ -159,6 +159,20 @@
   transform: scale(1.05);
 }
 
+ /* Arrows for year hints */
+.arrow-up {
+  background-color: #facc15;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><polygon points="6,0 12,10 0,10" fill="%23c0b794"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.arrow-down {
+  background-color: #facc15;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 10"><polygon points="6,10 12,0 0,0" fill="%23c0b794"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 /* Couleurs */
 .bg-green {
   background: #6ee7b7;
