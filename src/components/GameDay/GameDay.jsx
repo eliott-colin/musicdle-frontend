@@ -1,0 +1,83 @@
+import { useState, useEffect } from "react";
+import { useSearch } from "../../hooks/useSearch";
+import { useGuess } from "../../hooks/useGuess";
+import GuessRow from "./GuessRow";
+import "./GameDay.css";
+
+function GameDay({ id = "" }) {
+  const [searchValue, setSearchValue] = useState(id);
+
+  useEffect(() => { setSearchValue(id); }, [id]);
+
+  const { tracks, loading, error: searchError, setTracks } = useSearch(searchValue);
+  const { history, hints, error: guessError, compare } = useGuess();
+
+  const handleSelect = (track) => {
+    compare(track);
+    setSearchValue("");
+    setTracks([]);
+  };
+
+  return (
+    <section className="game-day-card">
+      <div className="game-header">
+        <p className="generation">Daily Game</p>
+        <h2>Devine le morceau d'aujourd'hui</h2>
+      </div>
+
+      <div className="game-day-form">
+        <input
+          className="game-day-input"
+          type="text"
+          placeholder="Tape le nom du morceau"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </div>
+
+      {loading && <p className="game-day-message">Recherche...</p>}
+      {(searchError || guessError) && (
+        <p className="game-day-message error">{searchError || guessError}</p>
+      )}
+
+      {tracks.length > 0 && (
+        <ul className="game-day-results">
+          {tracks.map((track) => (
+            <li key={track.id} className="game-day-result clickable" onClick={() => handleSelect(track)}>
+              <div className="game-day-track">
+                {track?.cover && <img src={track.cover} alt="" />}
+                <div className="game-day-track-info">
+                  <strong>{track.track}</strong>
+                  <span>{track.artist}</span>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {history.length > 0 && (
+        <div className="guess-header">
+          <div>Titre</div>
+          <div>Artiste</div>
+          <div>Album</div>
+          <div>Année</div>
+        </div>
+      )}
+
+      <div className="history">
+        {history.map((item, i) => <GuessRow key={i} item={item} />)}
+      </div>
+
+      <div className="hints">
+        <h3>Indices</h3>
+        {hints.length === 0
+          ? <p>Aucun indice pour le moment</p>
+          : hints.map((h, i) => <p key={i}>{h}</p>)
+        }
+      </div>
+    </section>
+  );
+}
+
+export default GameDay;

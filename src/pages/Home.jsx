@@ -1,7 +1,7 @@
 import React from "react";
 import ChoiceGame from "../components/ChoiceGame";
 import DailyGame from "../components/DailyGame";
-import GameMode from "../components/GameMode"
+import GameMode from "../components/GameModeCard"
 
 function Home() {
   return (

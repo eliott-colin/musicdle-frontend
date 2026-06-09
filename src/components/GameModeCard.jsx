@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./dailyGame.css";
 
-function DailyGame({ mode, description }) {
+function GameModeCard({ mode, description }) {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString("fr-FR", {
     day: "2-digit",
@@ -13,7 +13,7 @@ function DailyGame({ mode, description }) {
   return (
     <>
       <Link
-        to={`/game/${currentDay}`}
+        to={`/games/classic/`}
         style={{ textDecoration: "none", color: "black" }}
       >
         <div className="daily-card">
@@ -34,4 +34,4 @@ function DailyGame({ mode, description }) {
   );
 }
 
-export default DailyGame;
+export default GameModeCard;

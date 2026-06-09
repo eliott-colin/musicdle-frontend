@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
 import "../components/dailyGame.css";
-import GameDay from "../components/GameDay.jsx";
+import GameDay from "../components/GameDay/GameDay";
 
 function Game() {
-  const { id } = useParams();
 
   return (
     <main className="page-shell">
