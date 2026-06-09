@@ -9,6 +9,7 @@ const API_BASE_URL = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
 
 function buildApiUrl(path, params) {
   const url = new URL(`${API_BASE_URL}${path}`, window.location.origin);
+
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null && value !== "") {
@@ -16,6 +17,7 @@ function buildApiUrl(path, params) {
       }
     });
   }
+
   return url.toString();
 }
 
@@ -24,7 +26,6 @@ function GameDay({ id = "" }) {
   const [tracks, setTracks] = useState([]);
   const [history, setHistory] = useState([]);
   const [hints, setHints] = useState([]);
-  const [secret, setSecret] = useState(null);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -43,7 +44,9 @@ function GameDay({ id = "" }) {
         setLoading(true);
         setError("");
 
-        const response = await fetch(buildApiUrl("/api/search", { q: query }));
+        const response = await fetch(
+          buildApiUrl("/api/search", { q: query })
+        );
 
         if (!response.ok) throw new Error();
 
@@ -118,7 +121,7 @@ function GameDay({ id = "" }) {
       yearHint,
     };
 
-    setHistory((prev) => [result, ...prev]);
+      setHistory((prev) => [result, ...prev]);
 
     const newHints = [];
     if (result.artistState === "correct") newHints.push("Bon artiste !");
