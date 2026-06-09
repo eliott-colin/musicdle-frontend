@@ -13,7 +13,7 @@ function DailyGame() {
   return (
     <>
       <Link
-        to={`/game/${currentDay}`}
+        to={`/games/classic/`}
         style={{ textDecoration: "none", color: "black" }}>
         <div className="daily-card">
           {/* illustration */}
