@@ -5,6 +5,7 @@ import Game from "../pages/Game.jsx";
 import RegisterForm from "../pages/RegisterForm.jsx";
 import ConnexionForm from "../pages/ConnexionForm.jsx";
 import Error from "../pages/Error.jsx";
+import ResearchPage from "../pages/ResearchPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { path: "game/:id", element: <Game /> },
       { path: "register", element: <RegisterForm /> },
       { path: "login", element: <ConnexionForm />},
+      { path: "research", element: <ResearchPage />}
     ]
   }
 ],

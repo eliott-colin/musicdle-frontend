@@ -1,0 +1,104 @@
+.search-page {
+  background: #dcdcc4;
+  padding: 16px;
+  font-family: sans-serif;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e2b84b;
+  padding: 12px;
+  border-bottom: 3px solid black;
+}
+
+.header h1 {
+  font-weight: bold;
+}
+
+.menu,
+.profile {
+  font-size: 20px;
+}
+
+/* SEARCH BAR */
+.search-bar input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 20px;
+  border: 2px solid black;
+  margin: 20px 0;
+}
+
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.categories button {
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid black;
+  background: #8a9a2f;
+  color: white;
+}
+
+.categories .active {
+  background: #e2b84b;
+  color: black;
+}
+
+/* TITLES */
+h2 {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* ROWS */
+.row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+}
+
+/* CARDS */
+.card {
+  min-width: 120px;
+}
+
+.card.large {
+  min-width: 180px;
+}
+
+.img-placeholder {
+  height: 100px;
+  background: #bbb;
+  border-radius: 15px;
+  border: 2px solid black;
+}
+
+.card p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* LOCATION */
+.nav-arrows {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.map-placeholder {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
