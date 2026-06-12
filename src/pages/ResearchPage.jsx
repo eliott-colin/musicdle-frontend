@@ -2,11 +2,11 @@ import { useState } from "react";
 import "../components/researchPage.css";
 
 function ResearchPage() {
-  // 🔍 state
+  // state
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("RAP/HIP-HOP");
 
-  // 📦 mock data
+  // mock data
   const categories = ["RAP/HIP-HOP", "ROCK", "POP"];
 
   const artists = [
@@ -14,12 +14,14 @@ function ResearchPage() {
     { id: 2, name: "Drake" },
     { id: 3, name: "The Weeknd" },
     { id: 4, name: "Future" },
+    { id: 5, name: "Georges Brassens" },
   ];
 
   const decades = [
     { id: 1, label: "ANNÉES 2000" },
     { id: 2, label: "ANNÉES 90" },
     { id: 3, label: "ANNÉES 80" },
+    { id: 4, label: "ANNÉES 70" },
   ];
 
   const locations = [{ id: 1, label: "BORDEAUX, FRANCE" }];
