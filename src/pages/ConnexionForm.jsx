@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SubmitButton from "../components/SubmitButton";
 import { useLocation } from "react-router-dom";
 
-function RegisterForm() {
+function ConnexionForm() {
   const API_BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
   const initialFormState = {
     username: "",
@@ -18,7 +18,6 @@ function RegisterForm() {
   const canSubmit = useMemo(
     () =>
       Boolean(
-        form.username.trim() &&
         form.email.trim() &&
         form.password.trim() &&
         !isSubmitting,
@@ -42,13 +41,12 @@ function RegisterForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: form.username.trim(),
           email: form.email.trim(),
           password: form.password,
         }),
@@ -57,7 +55,7 @@ function RegisterForm() {
       const payload = await response.json();
 
       if (!response.ok) {
-        throw new Error(payload.message ?? "Une erreur est survenue");
+        throw new Error(payload.message ?? response.statusText ?? "Une erreur est survenue");
       }
 
       setCreatedUser(payload);
@@ -147,4 +145,4 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default ConnexionForm;
