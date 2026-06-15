@@ -60,6 +60,14 @@ function ConnexionForm() {
 
       setCreatedUser(payload);
       setStatus({ type: "success", message: "Utilisateur connecté avec succès." });
+      localStorage.setItem("token", payload.token);
+
+      setCreatedUser(payload.user);
+      setStatus({
+        type: "success",
+        message: "Utilisateur connecté avec succès.",
+      });
+      localStorage.setItem("token", payload.token);
       setForm(initialFormState);
     } catch (error) {
       setStatus({

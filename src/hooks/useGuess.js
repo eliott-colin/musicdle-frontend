@@ -6,11 +6,14 @@ export function useGuess() {
   const [hints, setHints] = useState([]);
   const [error, setError] = useState("");
 
+  const token = localStorage.getItem("token");
   const compare = async (track) => {
     try {
       const response = await fetch(buildApiUrl("/api/games/classic/guess"), {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
         body: JSON.stringify({ guessId: track.id }),
       });
       if (!response.ok) throw new Error(`Serveur ${response.status}`);
