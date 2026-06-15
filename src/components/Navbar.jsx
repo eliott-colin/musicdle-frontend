@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import ConnexionButton from "./ConnexionButton";
+import LogoutButton from "./Logout/Logout";
 
 function Navbar() {
   // useState start false -> my nav bar is not open
   const [navIsOpen, setNavIsOpen] = useState(false);
   const location = useLocation();
   const [activePath, setActivePath] = useState(location.pathname);
+  const isAuthenticated = Boolean(localStorage.getItem("token"));
 
   useEffect(() => {
     setNavIsOpen(false);
@@ -30,19 +32,31 @@ function Navbar() {
           <li id="cross2"></li>
         </ul>
 
-        <img
-          src={`${import.meta.env.BASE_URL}images/MUSICDLE-logo.png`}
-          alt="logo"
-          className="navbar-logo"
-        />
+        <Link to="/">
+          <img
+            src={`${import.meta.env.BASE_URL}images/MUSICDLE-logo.png`}
+            alt="logo"
+            className="navbar-logo"
+          />
+        </Link>
         <div>
-          <Link to="/register">
-            <img
-              src={`${import.meta.env.BASE_URL}images/bee.png`}
-              alt="Connexion"
-              className="nav-connexion"
-            />
-          </Link>
+          {isAuthenticated ? (
+            <LogoutButton className="nav-logout">
+              <img
+                src={`${import.meta.env.BASE_URL}images/bee.png`}
+                alt="Déconnexion"
+                className="nav-connexion"
+              />
+            </LogoutButton>
+          ) : (
+            <Link to="/register">
+              <img
+                src={`${import.meta.env.BASE_URL}images/bee.png`}
+                alt="Connexion"
+                className="nav-connexion"
+              />
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -52,22 +66,37 @@ function Navbar() {
             <li className={getLinkClass("/")}>
               <Link to="/">Accueil</Link>
             </li>
-            <li className={getLinkClass("/daily-game")}>
-              <Link to="/register">Jeu du jour</Link>
+            <li className={getLinkClass("/games/classic")}>
+              <Link to="/games/classic">Jeu du jour</Link>
             </li>
-            <li className={getLinkClass("/choice")}>
-              <Link to="/choice">Mode libre</Link>
+            <li className={getLinkClass("/research")}>
+              <Link to="/research">Mode libre</Link>
             </li>
-            <li className={getLinkClass("/profil")}>
-              <Link to="/profil">Profil</Link>
-            </li>
+            {!isAuthenticated ? (
+              <>
+                <li className={getLinkClass("/login")}>
+                  <Link to="/login">Connexion</Link>
+                </li>
+                <li className={getLinkClass("/register")}>
+                  <Link to="/register">Inscription</Link>
+                </li>
+              </>
+            ) : (
+              <li>
+                <LogoutButton />
+              </li>
+            )}
           </ul>
         </div>
 
         <div className="sidebar-footer">
-          <Link to="/register">
-            <ConnexionButton text="Connexion ou inscription" />
-          </Link>
+          {!isAuthenticated ? (
+            <Link to="/register">
+              <ConnexionButton text="Connexion ou inscription" />
+            </Link>
+          ) : (
+            <LogoutButton />
+          )}
         </div>
       </div>
     </>

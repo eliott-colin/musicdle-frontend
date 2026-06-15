@@ -18,6 +18,30 @@
   width: 2em;
 }
 
+nav button,
+#sidebar button {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+nav button {
+  padding: 0;
+}
+
+#sidebar button {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+#sidebar button:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
 /* ------ HAMBURGER ------- */
 #hamburger-menu {
   display: flex;

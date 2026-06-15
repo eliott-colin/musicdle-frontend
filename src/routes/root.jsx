@@ -6,7 +6,6 @@ import RegisterForm from "../pages/RegisterForm.jsx";
 import ConnexionForm from "../pages/ConnexionForm.jsx";
 import Error from "../pages/Error.jsx";
 import ResearchPage from "../pages/ResearchPage.jsx";
-import PublicRoute from "../components/PublicRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,15 +16,12 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "games/classic", element: <Game /> },
       { path: "register", element: <RegisterForm /> },
-      {path: "login",element: (
-      <PublicRoute>
-        <ConnexionForm />
-      </PublicRoute>
-      )},
-      { path: "research", element: <ResearchPage />}
+      { path: "login", element: <ConnexionForm /> },
+      { path: "logout", element: <ConnexionForm /> },
+      { path: "research", element: <ResearchPage /> }
     ]
   }
 ],
-{ basename: "/musicdle" },);
+{ basename: "/musicdle" });
 
 export default router;
