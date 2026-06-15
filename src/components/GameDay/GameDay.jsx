@@ -3,6 +3,7 @@ import { useSearch } from "../../hooks/useSearch";
 import { useGuess } from "../../hooks/useGuess";
 import GuessRow from "./GuessRow";
 import "./GameDay.css";
+import { useGenre } from "../../hooks/useGenre";
 
 function GameDay({ id = "" }) {
   const [searchValue, setSearchValue] = useState(id);
@@ -19,12 +20,13 @@ function GameDay({ id = "" }) {
     setTracks,
   } = useSearch(searchValue);
   const { history, hints, error: guessError, compare } = useGuess();
+  const { genre: targetGenre, error: genreError } = useGenre();
 
   const handleSelect = (track) => {
     compare(track);
     setSearchValue("");
     setTracks([]);
-    setNumberTry((prev) => prev + 1);
+    setNumberTry((previous) => previous + 1);
   };
 
   return (
@@ -37,11 +39,17 @@ function GameDay({ id = "" }) {
       {numberTry > 0 ? (
         <div className="hints">
           <h3>Indices</h3>
+          {numberTry >= 3 && targetGenre ? (
+            <p className="hint hint-genre">Genre du morceau: {targetGenre}</p>
+          ) : null}
           {hints.length === 0 ? (
             <p>Aucun indice pour le moment</p>
           ) : (
             hints.map((hint, index) => (
-              <p key={index} className={`hint ${hint.direction || hint.status}`}>
+              <p
+                key={index}
+                className={`hint ${hint.direction || hint.status}`}
+              >
                 {hint.text}
               </p>
             ))
