@@ -24,8 +24,7 @@ function GameDay({ id = "" }) {
     compare(track);
     setSearchValue("");
     setTracks([]);
-    setNumberTry(numberTry+1);
-    console.log(numberTry);
+    setNumberTry((prev) => prev + 1);
   };
 
   return (
@@ -41,7 +40,11 @@ function GameDay({ id = "" }) {
           {hints.length === 0 ? (
             <p>Aucun indice pour le moment</p>
           ) : (
-            hints.map((hint, index) => <p key={index}>{hint}</p>)
+            hints.map((hint, index) => (
+              <p key={index} className={`hint ${hint.direction || hint.status}`}>
+                {hint.text}
+              </p>
+            ))
           )}
         </div>
       ) : (
@@ -89,6 +92,7 @@ function GameDay({ id = "" }) {
           <div>Artiste</div>
           <div>Album</div>
           <div>Année</div>
+          <div>Durée du morceau</div>
         </div>
       )}
 

@@ -19,11 +19,37 @@ export function useGuess() {
       setHistory((prev) => [{ ...track, result }, ...prev]);
 
       const newHints = [];
-      if (result.artist === "correct") newHints.push("Bon artiste !");
-      if (result.year?.status === "close") newHints.push("Année proche !");
-      if (result.year?.status === "lower") newHints.push("Année trop récente ↓");
-      if (result.year?.status === "higher") newHints.push("Année trop ancienne ↑");
-      if (result.track === "correct") newHints.push("GG → trouvé !");
+      if (result.artist === "correct") {
+        newHints.push({ status: "artist", text: "Bon artiste !" });
+      }
+
+      if (result.year?.status === "close") {
+        newHints.push({
+          status: "close",
+          text:
+            result.year.diff > 0
+              ? "Très proche, un peu plus récent"
+              : "Très proche, un peu plus ancien",
+          direction: result.year.diff > 0 ? "arrow-up" : "arrow-down",
+        });
+      }
+      if (result.year?.status === "lower") {
+        newHints.push({
+          status: "lower",
+          text: "Année trop récente",
+          direction: "arrow-down",
+        });
+      }
+      if (result.year?.status === "higher") {
+        newHints.push({
+          status: "higher",
+          text: "Année trop ancienne",
+          direction: "arrow-up",
+        });
+      }
+      if (result.track === "correct") {
+        newHints.push({ status: "track", text: "GG → trouvé !" });
+      }
       setHints(newHints);
     } catch {
       setError("Erreur lors de la comparaison.");

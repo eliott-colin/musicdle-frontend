@@ -16,7 +16,7 @@ export function getColor(state) {
   const s = typeof state === "object" ? state?.status : state;
   switch (s) {
     case "correct": return "bg-green border-black";
-    case "close":
+    case "close": return "bg-close border-black"
     case "higher":
     case "lower":
     case "longer":
@@ -25,13 +25,10 @@ export function getColor(state) {
   }
 }
 
-export function getYearLabel(yearResult) {
-  if (!yearResult) return "—";
-  switch (yearResult.status) {
-    case "correct": return "✓";
-    case "higher":  return "↑   ";
-    case "lower":   return "↓";
-    case "close":   return yearResult.diff > 0 ? "↑ proche" : "↓ proche";
-    default:        return "—";
-  }
+export function getYearArrowDirection(yearResult) {
+  if (!yearResult) return "";
+  if (yearResult.status === "higher") return "arrow-up";
+  if (yearResult.status === "lower") return "arrow-down";
+  if (yearResult.status === "close") return yearResult.diff > 0 ? "arrow-up" : "arrow-down";
+  return "";
 }
