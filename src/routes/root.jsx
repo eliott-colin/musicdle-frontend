@@ -16,11 +16,12 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "games/classic", element: <Game /> },
       { path: "register", element: <RegisterForm /> },
-      { path: "login", element: <ConnexionForm />},
-      { path: "research", element: <ResearchPage />}
+      { path: "login", element: <ConnexionForm /> },
+      { path: "logout", element: <ConnexionForm /> },
+      { path: "research", element: <ResearchPage /> }
     ]
   }
 ],
-{ basename: "/musicdle" },);
+{ basename: "/musicdle" });
 
 export default router;
