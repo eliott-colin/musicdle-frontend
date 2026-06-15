@@ -44,38 +44,51 @@ function RegisterForm() {
     setCreatedUser(null);
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch(`${API_BASE_URL}/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: form.username.trim(),
-          email: form.email.trim(),
-          password: form.password,
-        }),
-      });
+    if (initialFormState.password == initialFormState.passwordVerify) {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: form.username.trim(),
+            email: form.email.trim(),
+            password: form.password,
+          }),
+        });
+        console.log(response);
 
-      const payload = await response.json();
+        const payload = await response.json();
 
-      if (!response.ok) {
-        throw new Error(payload.message ?? "Une erreur est survenue");
+        if (!response.ok) {
+          throw new Error(
+            payload.message ?? response.statusText ?? "Une erreur est survenue",
+          );
+        }
+
+        setCreatedUser(payload);
+        setStatus({
+          type: "success",
+          message: "Utilisateur créé avec succès.",
+        });
+        setForm(initialFormState);
+      } catch (error) {
+        setStatus({
+          type: "error",
+          message:
+            error instanceof Error
+              ? error.message
+              : "Impossible de contacter le serveur.",
+        });
+      } finally {
+        setIsSubmitting(false);
       }
-
-      setCreatedUser(payload);
-      setStatus({ type: "success", message: "Utilisateur créé avec succès." });
-      setForm(initialFormState);
-    } catch (error) {
+    } else {
       setStatus({
         type: "error",
-        message:
-          error instanceof Error
-            ? error.message
-            : "Impossible de contacter le serveur.",
-      });
-    } finally {
-      setIsSubmitting(false);
+        message: "Les 2 mots de passe ne correspondent pas entre-eux"
+      })
     }
   };
 
