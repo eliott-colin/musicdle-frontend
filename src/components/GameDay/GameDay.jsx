@@ -6,16 +6,26 @@ import "./GameDay.css";
 
 function GameDay({ id = "" }) {
   const [searchValue, setSearchValue] = useState(id);
+  const [numberTry, setNumberTry] = useState(0);
 
-  useEffect(() => { setSearchValue(id); }, [id]);
+  useEffect(() => {
+    setSearchValue(id);
+  }, [id]);
 
-  const { tracks, loading, error: searchError, setTracks } = useSearch(searchValue);
+  const {
+    tracks,
+    loading,
+    error: searchError,
+    setTracks,
+  } = useSearch(searchValue);
   const { history, hints, error: guessError, compare } = useGuess();
 
   const handleSelect = (track) => {
     compare(track);
     setSearchValue("");
     setTracks([]);
+    setNumberTry(numberTry+1);
+    console.log(numberTry);
   };
 
   return (
@@ -24,6 +34,19 @@ function GameDay({ id = "" }) {
         <p className="generation">Daily Game</p>
         <h2>Devine le morceau d'aujourd'hui</h2>
       </div>
+
+      {numberTry > 0 ? (
+        <div className="hints">
+          <h3>Indices</h3>
+          {hints.length === 0 ? (
+            <p>Aucun indice pour le moment</p>
+          ) : (
+            hints.map((hint, index) => <p key={index}>{hint}</p>)
+          )}
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="game-day-form">
         <input
@@ -43,7 +66,11 @@ function GameDay({ id = "" }) {
       {tracks.length > 0 && (
         <ul className="game-day-results">
           {tracks.map((track) => (
-            <li key={track.id} className="game-day-result clickable" onClick={() => handleSelect(track)}>
+            <li
+              key={track.id}
+              className="game-day-result clickable"
+              onClick={() => handleSelect(track)}
+            >
               <div className="game-day-track">
                 {track?.cover && <img src={track.cover} alt="" />}
                 <div className="game-day-track-info">
@@ -66,15 +93,9 @@ function GameDay({ id = "" }) {
       )}
 
       <div className="history">
-        {history.map((item, i) => <GuessRow key={i} item={item} />)}
-      </div>
-
-      <div className="hints">
-        <h3>Indices</h3>
-        {hints.length === 0
-          ? <p>Aucun indice pour le moment</p>
-          : hints.map((h, i) => <p key={i}>{h}</p>)
-        }
+        {history.map((item, i) => (
+          <GuessRow key={i} item={item} />
+        ))}
       </div>
     </section>
   );
