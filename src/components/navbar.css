@@ -89,7 +89,7 @@ nav button {
   top: var(--navbar-height);
   left: 0;
   right: 0;
-  font-family: catalpa, sans-serif; 
+  font-family: catalpa, sans-serif;
   font-weight: 700;
   background-color: #f1bb23;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -158,4 +158,23 @@ nav button {
   padding: 1rem;
   background-color: #e2b63b;
   border-top: 2px solid #310a1f;
+}
+
+div.sidebar-footer#footer .logout-button {
+  border: 3px solid var(--whiteMusicdle);
+  background-color: var(--redMusicdle);
+  color: var(--whiteMusicdle);
+  font-family: catalpa, sans-serif;
+  font-weight: 700;
+
+  border-radius: var(--border-radius-musicdle);
+  padding: 0.5em 1em;
+
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+  width: fit-content;
+  margin: auto;
 }

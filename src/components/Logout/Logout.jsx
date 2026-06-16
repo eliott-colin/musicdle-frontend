@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import "../connexionButton.css";
 
-function LogoutButton({ className = "", children, text = "Déconnexion" }) {
+function LogoutButton({ children, text = "Déconnexion", className }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
