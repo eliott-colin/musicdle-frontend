@@ -7,7 +7,6 @@ export function useGenre() {
   const [loading, setLoading] = useState(false);
 
   const fetchGenre = async () => {
-    // console.log(buildApiUrl("/api/games/classic/guess/genre"));
     try {
       setLoading(true);
       setError("");
@@ -17,10 +16,9 @@ export function useGenre() {
       if (!response.ok) {
         throw new Error(`Serveur ${response.status}`);
       }
-      console.log(response)
+
       const data = await response.json();
       
-      console.log(data);
       setGenre(
         typeof data === "string"
           ? data

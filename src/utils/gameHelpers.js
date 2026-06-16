@@ -17,8 +17,8 @@ export function getColor(state) {
   switch (s) {
     case "correct": return "bg-green border-black";
     case "close": return "bg-close border-black"
-    case "higher":
-    case "lower":
+    case "higher" :return "bg-red border-black"
+    case "lower" : return "bg-red border-black"
     case "longer":
     case "shorter": return "bg-yellow border-black";
     default: return "bg-red border-black";

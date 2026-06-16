@@ -4,7 +4,7 @@ function GuessRow({ item }) {
   const yearResult = item.result?.year;
   const yearArrow = getYearArrowDirection(yearResult);
 
-  const durationResult = item.duration?.year;
+  const durationResult = item.result?.duration;
   const durationArrow = getYearArrowDirection(durationResult);
 
   return (
