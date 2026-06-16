@@ -40,7 +40,7 @@ function GameDay({ id = "" }) {
         <div className="hints">
           <h3>Indices</h3>
           {numberTry >= 3 && targetGenre ? (
-            <p className="hint hint-genre">Genre du morceau: {targetGenre}</p>
+            <p className="hint-genre">Genre du morceau: {targetGenre}</p>
           ) : null}
           {hints.length === 0 ? (
             <p>Aucun indice pour le moment</p>

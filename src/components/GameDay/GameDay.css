@@ -258,6 +258,28 @@
   background: #3a506b;
 }
 
+.hints p.hint-genre {
+  position: relative;
+  border: 3px solid var(--burgundyMusicdle);
+  background-color: var(--yellowMusicdle);
+  font-weight: 800;
+
+  animation: hint-pop 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes hint-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.035);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .game-header {
   text-align: center;
   padding: 10px;
@@ -286,36 +308,9 @@
   font-size: 0.95rem;
 }
 
-
 @media (max-width: 520px) {
   .guess-row,
   .guess-header {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ===== GENRE HINT (ULTRA CLEAN VERSION) ===== */
-.hint-genre {
-  margin-top: 10px;
-  padding: 14px 16px 14px 3.2rem;
-
-  border-radius: 16px;
-  border: 2px solid rgba(176, 106, 44, 0.35);
-
-  color: #2d241c;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  animation: fadeSlideIn 0.35s ease;
-}
-
-/* ===== ANIMATION ===== */
-@keyframes fadeSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
