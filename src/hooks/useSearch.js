@@ -15,7 +15,11 @@ export function useSearch(searchValue) {
         setLoading(true);
         setError("");
         const response = await fetch(buildApiUrl("/api/search", { q: query }));
-        if (!response.ok) throw new Error(`Serveur ${response.status}`);
+        // fallback
+        if (!response.ok) {
+          throw new Error(`Serveur ${response.status}`)
+        };
+
         const data = await response.json();
         const nextTracks = data?.tracks ?? data?.items ?? data;
         setTracks(Array.isArray(nextTracks) ? nextTracks.slice(0, 3) : []);

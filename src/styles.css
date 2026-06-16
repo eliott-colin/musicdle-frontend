@@ -14,11 +14,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --orangeMusicdle: #fe5a1b;
+  --orangeMusicdle: rgb(254, 90, 27);
   --yellowMusicdle: #fddf42;
   --burgundyMusicdle: #310a1f;
   --blackMusicdle: #202020;
-  --greenMusicdle: #809311;
+  --greenMusicdle: rgb(128, 147, 17);
   --whiteMusicdle: #f8f9da;
   --border-musicdle: 3px solid #310a1f;
   --border-radius-musicdle: 13px;
