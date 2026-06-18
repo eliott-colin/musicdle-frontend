@@ -29,15 +29,13 @@ export function useGuess() {
 
       const newHints = [];
 
-      // 🎤 artist
       if (result.artist === "correct") {
         newHints.push({
           status: "artist",
-          text: "✅ Bon artiste !",
+          text: "Bon artiste !",
         });
       }
 
-      // 📅 year
       if (result.year?.status === "tooRecent") {
         newHints.push({
           status: "year",
@@ -57,7 +55,7 @@ export function useGuess() {
       if (result.year?.status === "close") {
         newHints.push({
           status: "year",
-          text: "Tu chauffes sur l'année 🔥",
+          text: "Année très proche",
         });
       }
 
@@ -65,11 +63,10 @@ export function useGuess() {
       if (result.track === "correct") {
         newHints.push({
           status: "track",
-          text: "🎉 Bravo ! Trouvé !",
+          text: "Bravo ! Trouvé !",
         });
       }
 
-      // ⏱️ duration
       if (result.duration?.status === "close") {
         newHints.push({
           status: "duration",
