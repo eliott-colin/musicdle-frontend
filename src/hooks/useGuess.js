@@ -36,30 +36,25 @@ export function useGuess() {
         });
       }
 
-      if (result.year?.status === "tooRecent") {
-        newHints.push({
-          status: "year",
-          text: "Sorti plus tôt",
-          direction: "arrow-down",
-        });
-      }
-
-      if (result.year?.status === "tooOld") {
-        newHints.push({
-          status: "year",
-          text: "Sorti plus tard",
-          direction: "arrow-up",
-        });
-      }
-
       if (result.year?.status === "close") {
         newHints.push({
-          status: "year",
-          text: "Année très proche",
+          text: "Année proche",
+          direction:
+            result.year.direction === "tooRecent" ? "arrow-down" : "arrow-up",
         });
       }
 
-      // 🎵 track
+      if (result.year?.status === "far") {
+        newHints.push({
+          text:
+            result.year.direction === "tooRecent"
+              ? "Sorti bien plus tôt"
+              : "Sorti bien plus tard",
+          direction:
+            result.year.direction === "tooRecent" ? "arrow-down" : "arrow-up",
+        });
+      }
+
       if (result.track === "correct") {
         newHints.push({
           status: "track",
@@ -67,31 +62,34 @@ export function useGuess() {
         });
       }
 
+      // ⏱️ duration
+
       if (result.duration?.status === "close") {
         newHints.push({
           status: "duration",
-          text: "Durée très proche",
+          text: "Durée proche",
           subtext:
-            result.duration.diff > 0
-              ? "Essaie un titre un peu plus court"
-              : "Essaie un titre un peu plus long",
-          direction: result.duration.diff > 0 ? "arrow-down" : "arrow-up",
+            result.duration.direction === "tooLong"
+              ? "Un peu trop long"
+              : "Un peu trop court",
+          direction:
+            result.duration.direction === "tooLong" ? "arrow-down" : "arrow-up",
         });
       }
 
-      if (result.duration?.status === "tooRecent") {
+      if (result.duration?.status === "far") {
         newHints.push({
           status: "duration",
-          text: "Essaie un titre plus court",
-          direction: "arrow-down",
-        });
-      }
-
-      if (result.duration?.status === "tooOld") {
-        newHints.push({
-          status: "duration",
-          text: "Essaie un titre plus long",
-          direction: "arrow-up",
+          text:
+            result.duration.direction === "tooLong"
+              ? "Beaucoup trop long"
+              : "Beaucoup trop court",
+          subtext:
+            result.duration.direction === "tooLong"
+              ? "Essaie un titre plus court"
+              : "Essaie un titre plus long",
+          direction:
+            result.duration.direction === "tooLong" ? "arrow-down" : "arrow-up",
         });
       }
 
