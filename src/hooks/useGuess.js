@@ -9,83 +9,98 @@ export function useGuess() {
   const token = localStorage.getItem("token");
   const compare = async (track) => {
     try {
+      setError("");
+
       const response = await fetch(buildApiUrl("/api/games/classic/guess"), {
         method: "POST",
-        headers: { "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ guessId: track.id }),
       });
-      if (!response.ok) {
-        throw new Error(`Serveur ${response.status}`)
-      };
-      const result = await response.json();
 
+      if (!response.ok) {
+        throw new Error(`Serveur ${response.status}`);
+      }
+
+      const result = await response.json();
       setHistory((prev) => [{ ...track, result }, ...prev]);
 
       const newHints = [];
+
+      // 🎤 artist
       if (result.artist === "correct") {
-        newHints.push({ status: "artist", text: "Bon artiste !" });
+        newHints.push({
+          status: "artist",
+          text: "✅ Bon artiste !",
+        });
+      }
+
+      // 📅 year
+      if (result.year?.status === "tooRecent") {
+        newHints.push({
+          status: "year",
+          text: "Sorti plus tôt",
+          direction: "arrow-down",
+        });
+      }
+
+      if (result.year?.status === "tooOld") {
+        newHints.push({
+          status: "year",
+          text: "Sorti plus tard",
+          direction: "arrow-up",
+        });
       }
 
       if (result.year?.status === "close") {
         newHints.push({
-          status: "close",
-          text:
-            result.year.diff > 0
-              ? "Date très proche, un peu plus récent"
-              : "Date très proche, un peu plus ancien",
-          direction: result.year.diff > 0 ? "arrow-up" : "arrow-down",
-        });
-      }
-      if (result.year?.status === "lower") {
-        newHints.push({
-          status: "lower",
-          text: "Année trop récente",
-          direction: "arrow-down",
-        });
-      }
-      if (result.year?.status === "higher") {
-        newHints.push({
-          status: "higher",
-          text: "Année trop ancienne",
-          direction: "arrow-up",
+          status: "year",
+          text: "Tu chauffes sur l'année 🔥",
         });
       }
 
+      // 🎵 track
       if (result.track === "correct") {
-        newHints.push({ status: "track", text: "GG → trouvé !" });
+        newHints.push({
+          status: "track",
+          text: "🎉 Bravo ! Trouvé !",
+        });
       }
-      console.log(result.duration)
+
+      // ⏱️ duration
       if (result.duration?.status === "close") {
         newHints.push({
-          status: "close",
-          text:
+          status: "duration",
+          text: "Durée très proche",
+          subtext:
             result.duration.diff > 0
-              ? "Durée proche à 30s (plus long)"
-              : "Durée proche à 30s (plus court)",
-          direction: result.duration.diff > 0 ? "arrow-up" : "arrow-down",
+              ? "Essaie un titre un peu plus court"
+              : "Essaie un titre un peu plus long",
+          direction: result.duration.diff > 0 ? "arrow-down" : "arrow-up",
         });
       }
-      if (result.duration?.status === "lower") {
+
+      if (result.duration?.status === "tooRecent") {
         newHints.push({
-          status: "lower",
-          text: "Durée trop longue",
+          status: "duration",
+          text: "Essaie un titre plus court",
           direction: "arrow-down",
         });
       }
-      if (result.duration?.status === "higher") {
+
+      if (result.duration?.status === "tooOld") {
         newHints.push({
-          status: "higher",
-          text: "Durée trop courte",
+          status: "duration",
+          text: "Essaie un titre plus long",
           direction: "arrow-up",
         });
       }
 
-      if(result.duration)
       setHints(newHints);
-    } catch {
-      setError("Erreur lors de la comparaison.");
+    } catch (error) {
+      setError(error?.message || "Erreur lors de la comparaison.");
     }
   };
 
