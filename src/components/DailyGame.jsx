@@ -17,28 +17,27 @@ function DailyGame() {
   });
 
   return (
-    <>
+    <div className="daily-card">
       <Link
         to={`/games/classic/`}
         style={{ textDecoration: "none", color: "black" }}>
-        <div className="daily-card">
-          {/* illustration */}
-          <div className="daily-game-hour">{formattedTime}</div>
+        <div className="daily-game-hour">{formattedTime}</div>
+        <div className="bg-daily-game">
+          <div className="date-container">
+            <span className="current-day">{currentDay} </span>
+            {currentMonth}
+          </div>
 
-          <div className="bg-daily-game">
-            <div className="date-container">
-              <span className="current-day">{currentDay} </span>
-              {currentMonth}
-            </div>
+          <div className="right-content">
+            <span className="challenge-name">Challenge du jour</span>
 
-            <div className="right-content">
-              <span className="challenge-name">Challenge du jour</span>
-              <button className="play-btn">JOUER</button>
-            </div>
+            <button className="play-btn" type="button">
+              JOUER
+            </button>
           </div>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
 

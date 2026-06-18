@@ -12,11 +12,11 @@ function GameModeCard({ mode, description }) {
 
   return (
     <>
-      <Link
-        to={`/games/classic/`}
-        style={{ textDecoration: "none", color: "black" }}
-      >
-        <div className="daily-card">
+      <div className="daily-card">
+        <Link
+          to={`/games/classic/`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
           <div className="bg-daily-game">
             <div className="mode-container">
               <img src="/musicdle/images/headphone.png" alt="" />
@@ -28,8 +28,8 @@ function GameModeCard({ mode, description }) {
             </div>
             <p>〉</p>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </>
   );
 }
