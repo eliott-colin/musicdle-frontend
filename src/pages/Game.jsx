@@ -12,8 +12,6 @@ function Game() {
 
       <div className="hero-panel">
         <GameDay />
-        
-        <section className="result-card"></section>
       </div>
     </main>
   );
