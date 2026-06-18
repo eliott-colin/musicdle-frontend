@@ -10,16 +10,16 @@
 }
 
 /* image */
-.illustration {
-  background: #4d8ec7;
+.daily-game-hour {
+  background: linear-gradient(#0090E4, #00D4FF);
   height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight: bold;
+  font-size: 42px;
+  font-weight: bolder;
   border-bottom: var(--border-musicdle);
-  overflow: hidden;
 }
 
 .bg-daily-game {

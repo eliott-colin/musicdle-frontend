@@ -10,6 +10,12 @@ function DailyGame() {
   const currentDay = formattedDate.split(" ")[0];
   const currentMonth = formattedDate.split(" ")[1];
 
+  const currentTime = new Date();
+  const formattedTime = currentTime.toLocaleTimeString("fr-FR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
     <>
       <Link
@@ -17,7 +23,7 @@ function DailyGame() {
         style={{ textDecoration: "none", color: "black" }}>
         <div className="daily-card">
           {/* illustration */}
-          <div className="illustration"><img src="/musicdle/images/illu.jpg" alt="illu" /></div>
+          <div className="daily-game-hour">{formattedTime}</div>
 
           <div className="bg-daily-game">
             <div className="date-container">
