@@ -3,6 +3,7 @@ import "./navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import ConnexionButton from "./ConnexionButton";
 import LogoutButton from "./Logout/Logout";
+import "./connexionButton.css";
 
 function Navbar() {
   // useState start false -> my nav bar is not open
@@ -41,7 +42,7 @@ function Navbar() {
         </Link>
         <div>
           {isAuthenticated ? (
-            <LogoutButton className="nav-logout">
+            <LogoutButton>
               <img
                 src={`${import.meta.env.BASE_URL}images/bee.png`}
                 alt="Déconnexion"
@@ -82,20 +83,18 @@ function Navbar() {
                 </li>
               </>
             ) : (
-              <li>
-                <LogoutButton />
-              </li>
+              null
             )}
           </ul>
         </div>
 
-        <div className="sidebar-footer">
+        <div className="sidebar-footer" id="footer">
           {!isAuthenticated ? (
             <Link to="/register">
               <ConnexionButton text="Connexion ou inscription" />
             </Link>
           ) : (
-            <LogoutButton />
+            <LogoutButton className="logout-button" />
           )}
         </div>
       </div>
