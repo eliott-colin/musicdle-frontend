@@ -285,7 +285,7 @@
   padding: 10px;
   border: 4px solid black;
   border-radius: 16px;
-  background: #3a506b;
+  background: linear-gradient(#0090E4, #00D4FF);
   color: white;
 }
 

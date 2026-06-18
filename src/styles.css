@@ -7,9 +7,6 @@
   line-height: 1.5;
   font-weight: 400;
   color: #1f1b17;
-  background:
-    radial-gradient(circle at top, rgba(232, 184, 110, 0.28), transparent 35%),
-    linear-gradient(180deg, #f7f0e6 0%, #ece2d3 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -34,7 +31,10 @@ body,
 #root {
   min-height: 100%;
   margin: 0;
-  background-color: var(--whiteMusicdle);
+  background-image: url("/musicdle/images/bg-games-musicdle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 150% 100%;
 }
 
 body {
@@ -243,7 +243,7 @@ h1 {
 }
 
 .toggle-switch.login .toggle-slider {
-  transform: translateX(0%);
+  transform: translateX(2%);
 }
 
 .toggle-switch.register .toggle-slider {
@@ -253,6 +253,21 @@ h1 {
 /*
 ========= HOME PAGE =========
 */
+.page-home,
+.page-games {
+  min-height: 90vh;
+  width: 100%;
+  background-image: url("/musicdle/images/bg-games-musicdle.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.page-home, .page-games {
+  padding-top: 1rem;
+}
+
 .container-all-games {
   display: flex;
   flex-direction: column;
@@ -260,4 +275,5 @@ h1 {
   margin: auto;
   gap: 20px;
   padding: 1em 0;
+  min-width: 95vh;
 }

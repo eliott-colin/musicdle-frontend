@@ -5,15 +5,13 @@ import GameDay from "../components/GameDay/GameDay";
 function Game() {
 
   return (
-    <main className="page-shell">
+    <main className="page-shell page-games">
       <div className="header-game">
         <img src="/musicdle/images/perso_battle.png" alt="deco" />
       </div>
 
       <div className="hero-panel">
         <GameDay />
-        
-        <section className="result-card"></section>
       </div>
     </main>
   );
