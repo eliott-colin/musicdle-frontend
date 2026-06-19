@@ -44,7 +44,7 @@ function Navbar() {
           {isAuthenticated ? (
             <LogoutButton>
               <img
-                src={`${import.meta.env.BASE_URL}images/bee.png`}
+                src={`${import.meta.env.BASE_URL}images/logo-beezy.png`}
                 alt="Déconnexion"
                 className="nav-connexion"
               />
@@ -52,7 +52,7 @@ function Navbar() {
           ) : (
             <Link to="/register">
               <img
-                src={`${import.meta.env.BASE_URL}images/bee.png`}
+                src={`${import.meta.env.BASE_URL}images/beezy-secondaire.png`}
                 alt="Connexion"
                 className="nav-connexion"
               />

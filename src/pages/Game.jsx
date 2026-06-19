@@ -7,7 +7,7 @@ function Game() {
   return (
     <main className="page-shell page-games">
       <div className="header-game">
-        <img src="/musicdle/images/perso_battle.png" alt="deco" />
+        <img src="/musicdle/images/beezy-secondaire.png" alt="deco" />
       </div>
 
       <div className="hero-panel">
