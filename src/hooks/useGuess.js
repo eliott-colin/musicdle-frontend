@@ -35,6 +35,19 @@ export function useGuess() {
           text: "Bon artiste !",
         });
       }
+      if (result.album === "correct") {
+        newHints.push({
+          status: "album",
+          text: "Bon album!",
+        });
+      }
+
+      if (result.track === "correct") {
+        newHints.push({
+          status: "track",
+          text: "Bon morceau !",
+        });
+      }
 
       if (result.year?.status === "close") {
         newHints.push({
@@ -61,8 +74,6 @@ export function useGuess() {
           text: "Bravo ! Trouvé !",
         });
       }
-
-      // ⏱️ duration
 
       if (result.duration?.status === "close") {
         newHints.push({
@@ -94,6 +105,7 @@ export function useGuess() {
       }
 
       setHints(newHints);
+      console.log(result)
     } catch (error) {
       setError(error?.message || "Erreur lors de la comparaison.");
     }

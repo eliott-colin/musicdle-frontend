@@ -18,12 +18,14 @@ export function buildApiUrl(path, params) {
 export function getColor(result) {
   if (!result) return "";
 
-  switch (result.status) {
+  const status = typeof result === "string" ? result : result.status;
+
+  switch (status) {
     case "correct":
       return "bg-green border-black";
 
     case "close":
-      return "bg-yellow border-black"; 
+      return "bg-yellow border-black";
 
     case "far":
       return "bg-red border-black";
