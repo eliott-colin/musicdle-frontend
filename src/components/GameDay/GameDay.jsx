@@ -4,6 +4,7 @@ import { useGuess } from "../../hooks/useGuess";
 import GuessRow from "./GuessRow";
 import "./GameDay.css";
 import { useGenre } from "../../hooks/useGenre";
+import GameLegend from "./GameLegend";
 
 function GameDay({ id = "" }) {
   const [searchValue, setSearchValue] = useState(id);
@@ -109,6 +110,8 @@ function GameDay({ id = "" }) {
           <GuessRow key={i} item={item} />
         ))}
       </div>
+
+      <GameLegend />
     </section>
   );
 }

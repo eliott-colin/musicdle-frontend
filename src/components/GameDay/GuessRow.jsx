@@ -1,11 +1,11 @@
-import { getColor, getYearArrowDirection } from "../../utils/gameHelpers";
+import { getColor, getArrowDirection } from "../../utils/gameHelpers";
 
 function GuessRow({ item }) {
   const yearResult = item.result?.year;
-  const yearArrow = getYearArrowDirection(yearResult);
+  const yearArrow = getArrowDirection(yearResult);
 
   const durationResult = item.result?.duration;
-  const durationArrow = getYearArrowDirection(durationResult);
+  const durationArrow = getArrowDirection(durationResult);
 
   return (
     <div className="guess-row">

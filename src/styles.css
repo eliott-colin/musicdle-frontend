@@ -262,6 +262,7 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+  background-attachment: fixed;
 }
 
 .page-home, .page-games {
